@@ -10,7 +10,7 @@ export default function PmKusumPage() {
     useEffect(() => {
         const initAnime = async () => {
             // @ts-ignore
-            const animeModule = await import("animejs");
+            const animeModule = await import("animejs") as any;
             // Handle v4 vs v3 import differences
             const anime = animeModule.default || animeModule;
 
