@@ -58,51 +58,72 @@ const getSolarPosition = (i: number) => {
 
 // 3. Wind Turbine for 'wind'
 const getWindPosition = (i: number) => {
-    // Divide particles: 30% tower, 70% blades
-    const towerCount = Math.floor(COUNT * 0.2);
-    const bladeCount = COUNT - towerCount;
+    // We want 3 windmills
+    const numWindmills = 3;
+    const particlesPerWindmill = Math.floor(COUNT / numWindmills);
+    const windmillIndex = Math.min(Math.floor(i / particlesPerWindmill), numWindmills - 1);
+    const localI = i % particlesPerWindmill;
 
-    if (i < towerCount) {
+    // Offsets for the 3 windmills (Left, Center, Right)
+    // Lowered Y values to anchor them to the bottom
+    const offsets = [
+        { x: -35, y: -25, z: -10 },
+        { x: 0, y: -15, z: 10 },
+        { x: 35, y: -25, z: -10 }
+    ];
+
+    // Recalculate counts for the single windmill
+    const towerCount = Math.floor(particlesPerWindmill * 0.2);
+    const bladeCount = particlesPerWindmill - towerCount;
+
+    let vec = new THREE.Vector3();
+
+    if (localI < towerCount) {
         // Tower: Cylinder
         const height = 40;
-        const radius = 1.5 + (1 - i / towerCount); // Taper slightly
-        const y = (i / towerCount) * height - 20; // -20 to 20
+        const radius = 1.5 + (1 - localI / towerCount); // Taper
+        const y = (localI / towerCount) * height - 20;
         const angle = Math.random() * Math.PI * 2;
 
         const x = Math.cos(angle) * radius;
         const z = Math.sin(angle) * radius;
 
-        return new THREE.Vector3(x, y, z);
+        vec.set(x, y, z);
     } else {
         // Blades: 3 blades
-        const bi = i - towerCount;
+        const bi = localI - towerCount;
         const perBlade = bladeCount / 3;
-        const bladeIndex = Math.floor(bi / perBlade); // 0, 1, 2
-        const progress = (bi % perBlade) / perBlade; // 0 to 1 along blade
+        const bladeIndex = Math.floor(bi / perBlade);
+        const progress = (bi % perBlade) / perBlade;
 
         const bladeLength = 35;
-        const bladeWidth = 3 * (1 - progress); // Taper
+        const bladeWidth = 3 * (1 - progress);
 
-        // Position along the blade length
         const r = progress * bladeLength;
         const w = (Math.random() - 0.5) * bladeWidth;
 
-        // Base blade vector (pointing up)
         const bx = w;
         const by = r;
-        const bz = 0; // Flat blade
+        const bz = 0;
 
-        const vec = new THREE.Vector3(bx, by, bz);
+        vec.set(bx, by, bz);
 
-        // Rotate blade to its angle (0, 120, 240)
+        // Rotate blade
         const bladeAngle = (bladeIndex * Math.PI * 2) / 3;
-        vec.applyAxisAngle(new THREE.Vector3(0, 0, 1), bladeAngle);
+        // Add random rotation offset per windmill so they don't look identical? 
+        // Or just fixed. Let's add a phase shift based on windmillIndex for variety if animating?
+        // Static structure here.
+        vec.applyAxisAngle(new THREE.Vector3(0, 0, 1), bladeAngle + (windmillIndex * Math.PI / 4));
 
-        // Move to top of tower
-        vec.y += 20;
-
-        return vec;
+        vec.y += 20; // Move to top
     }
+
+    // Apply Windmill Global Offset
+    vec.x += offsets[windmillIndex].x;
+    vec.y += offsets[windmillIndex].y;
+    vec.z += offsets[windmillIndex].z;
+
+    return vec;
 };
 
 // 4. Battery Stack for 'battery'

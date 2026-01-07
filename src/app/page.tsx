@@ -1,13 +1,15 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import EventsCalendar from "@/components/EventsCalendar";
-import UpcomingEventsSection from "@/components/UpcomingEventsSection";
 import HeroCarousel from "@/components/HeroCarousel";
 import SectionWrapper from "@/components/SectionWrapper";
 import Link from "next/link";
 import MicroCTA from "@/components/ui/MicroCTA";
-import { ArrowRight, ShieldCheck, Activity, HardHat, CheckCircle2, PenTool, Factory, Zap, BarChart3, Blocks, Link2 } from "lucide-react";
+import Counter from "@/components/ui/Counter";
+import { ArrowRight, ShieldCheck, Activity, HardHat, CheckCircle2, Blocks, Link2 } from "lucide-react";
+import Image from "next/image";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faDraftingCompass, faIndustry, faScrewdriverWrench, faDesktop } from "@fortawesome/free-solid-svg-icons";
 
 export default function Home() {
   useEffect(() => {
@@ -69,7 +71,7 @@ export default function Home() {
       {/* 2. MARQUEE SECTION (Light) */}
       <section className="py-20 bg-light rounded-t-[40px] relative z-20 -mt-10">
         <div className="max-w-7xl mx-auto px-6 mb-12">
-          <p className="text-center text-gray-400 text-xs font-bold uppercase tracking-[0.2em]">Preferred Partner for Industry Leaders</p>
+          <p className="text-center text-gray-400 text-lg font-bold uppercase tracking-[0.2em]">Preferred Partner for Industry Leaders</p>
         </div>
         <div className="flex overflow-hidden relative">
           <div className="flex animate-marquee gap-20 min-w-full px-10">
@@ -83,7 +85,7 @@ export default function Home() {
               "https://sp-ao.shortpixel.ai/client/to_auto,q_lossy,ret_img,w_1024/https://adaptive-engg.com/wp-content/uploads/2023/04/19-1024x1024.png.webp"
             ].map((src, i) => (
               <div key={i} className="flex-shrink-0">
-                <img src={src} alt="Partner" className="h-24 w-auto object-contain opacity-80 hover:scale-110 transition-transform duration-300" />
+                <img src={src} alt="Partner" className="h-40 w-auto object-contain opacity-80 hover:scale-110 transition-transform duration-300" />
               </div>
             ))}
             {/* Duplicate for seamless loop */}
@@ -97,7 +99,7 @@ export default function Home() {
               "https://sp-ao.shortpixel.ai/client/to_auto,q_lossy,ret_img,w_1024/https://adaptive-engg.com/wp-content/uploads/2023/04/19-1024x1024.png.webp"
             ].map((src, i) => (
               <div key={`dup-${i}`} className="flex-shrink-0">
-                <img src={src} alt="Partner" className="h-24 w-auto object-contain opacity-80 hover:scale-110 transition-transform duration-300" />
+                <img src={src} alt="Partner" className="h-40 w-auto object-contain opacity-80 hover:scale-110 transition-transform duration-300" />
               </div>
             ))}
           </div>
@@ -109,15 +111,20 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 text-center">
             {[
-              { val: "16+", label: "Years Experience" },
-              { val: "300+", label: "Manpower" },
-              { val: "68 GW+", label: "Assets Monitored" },
-              { val: "125,000+", label: "Sq. Ft. Facility" },
-              { val: "1,000+", label: "Projects Executed" },
-              { val: "500+", label: "Plants Monitored" }
+              { value: 16, suffix: "+", label: "Years Experience" },
+              { value: 300, suffix: "+", label: "Manpower" },
+              { value: 68, suffix: " GW+", label: "Assets Monitored" },
+              { value: 125000, suffix: "+", label: "Sq. Ft. Facility" },
+              { value: 1000, suffix: "+", label: "Projects Executed" },
+              { value: 500, suffix: "+", label: "Plants Monitored" }
             ].map((stat, i) => (
               <SectionWrapper key={i} delay={i * 0.1}>
-                <div className="text-5xl font-extrabold text-slate-900 font-heading mb-2">{stat.val}</div>
+                {/* <div className="text-5xl font-extrabold text-slate-900 font-heading mb-2">{stat.val}</div> */}
+                <Counter
+                  value={stat.value}
+                  suffix={stat.suffix}
+                  className="text-5xl font-extrabold text-slate-900 font-heading mb-2 block"
+                />
                 <div className="text-xs uppercase tracking-widest text-primary font-bold">{stat.label}</div>
               </SectionWrapper>
             ))}
@@ -165,11 +172,7 @@ export default function Home() {
             </SectionWrapper>
           </div>
 
-          <div className="mt-12 text-center">
-            <SectionWrapper delay={0.4}>
-              <MicroCTA text="View All Capabilities" variant="connect" href="/renewable" />
-            </SectionWrapper>
-          </div>
+
         </div >
       </section >
 
@@ -225,26 +228,37 @@ export default function Home() {
             <Link href="#" className="text-primary font-bold hover:text-white transition hidden md:block">View All Projects</Link>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <SectionWrapper delay={0.1}>
               <div className="group cursor-pointer">
-                <div className="h-96 bg-gray-800 rounded-2xl overflow-hidden mb-6 relative">
-                  <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=800&q=80" className="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition duration-700 group-hover:scale-105" alt="Project" />
+                <div className="h-80 bg-gray-800 rounded-2xl overflow-hidden mb-6 relative">
+                  <img src="/imgs/case%20/1.jpg" className="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition duration-700 group-hover:scale-105" alt="Project" />
                   <div className="absolute top-6 right-6 bg-white text-black px-4 py-1 text-xs font-bold rounded-full">GUJARAT</div>
                 </div>
-                <h3 className="text-3xl font-bold text-white mb-2">Water Supply Scheme</h3>
-                <p className="text-gray-400">Complete E&I automation for Rewa, Kirgi, and Barhi projects.</p>
+                <h3 className="text-2xl font-bold text-white mb-2">Water Supply Scheme</h3>
+                <p className="text-gray-400 text-sm">Complete E&I automation for Rewa, Kirgi, and Barhi projects.</p>
               </div>
             </SectionWrapper>
 
             <SectionWrapper delay={0.2}>
               <div className="group cursor-pointer">
-                <div className="h-96 bg-gray-800 rounded-2xl overflow-hidden mb-6 relative">
-                  <img src="https://images.unsplash.com/photo-1558449028-b53a39d100fc?auto=format&fit=crop&w=800&q=80" className="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition duration-700 group-hover:scale-105" alt="Project" />
+                <div className="h-80 bg-gray-800 rounded-2xl overflow-hidden mb-6 relative">
+                  <img src="/imgs/case%20/2.jpg" className="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition duration-700 group-hover:scale-105" alt="Project" />
                   <div className="absolute top-6 right-6 bg-white text-black px-4 py-1 text-xs font-bold rounded-full">HIGHWAY</div>
                 </div>
-                <h3 className="text-3xl font-bold text-white mb-2">Twin Tube Tunnel</h3>
-                <p className="text-gray-400">2.5Km highway tunnel E&I package delivery.</p>
+                <h3 className="text-2xl font-bold text-white mb-2">Twin Tube Tunnel</h3>
+                <p className="text-gray-400 text-sm">2.5Km highway tunnel E&I package delivery.</p>
+              </div>
+            </SectionWrapper>
+
+            <SectionWrapper delay={0.3}>
+              <div className="group cursor-pointer">
+                <div className="h-80 bg-gray-800 rounded-2xl overflow-hidden mb-6 relative">
+                  <img src="/imgs/case%20/3.jpg" className="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition duration-700 group-hover:scale-105" alt="Project" />
+                  <div className="absolute top-6 right-6 bg-white text-black px-4 py-1 text-xs font-bold rounded-full">MNRE</div>
+                </div>
+                <h3 className="text-2xl font-bold text-white mb-2">Solar Park Automation</h3>
+                <p className="text-gray-400 text-sm">Centralized SCADA for 500MW solar installation.</p>
               </div>
             </SectionWrapper>
           </div>
@@ -332,23 +346,27 @@ export default function Home() {
               </div>
 
               {[
-                { step: "01", title: "Conceptualize", desc: "Design & Feasibility", icon: <PenTool className="w-6 h-6" /> },
-                { step: "02", title: "Manufacture", desc: "In-house Panel Fabrication", icon: <Factory className="w-6 h-6" /> },
-                { step: "03", title: "Commission", desc: "Install & Test up to 66KV", icon: <Zap className="w-6 h-6" /> },
-                { step: "04", title: "Monitor", desc: "24/7 ReportWiz Analytics", icon: <BarChart3 className="w-6 h-6" /> }
+                { step: "01", title: "Conceptualize", desc: "Design & Feasibility", img: "/imgs/protocol/11.jpg" },
+                { step: "02", title: "Manufacture", desc: "In-house Panel Fabrication", img: "/imgs/protocol/12.jpg" },
+                { step: "03", title: "Commission", desc: "Install & Test up to 66KV", img: "/imgs/protocol/13.jpg" },
+                { step: "04", title: "Monitor", desc: "24/7 ReportWiz Analytics", img: "/imgs/protocol/14.jpg" }
               ].map((item, i) => (
                 <div key={i} className="group relative z-10 mb-12 md:mb-0">
-                  <div className="w-24 h-24 mx-auto bg-white rounded-full border-4 border-gray-50 shadow-xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:border-primary/30 transition-all duration-300 relative z-20 floating-icon">
-                    <div className="w-20 h-20 bg-gray-50 rounded-full flex items-center justify-center text-slate-400 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
-                      {item.icon}
-                    </div>
-                    <div className="absolute -top-2 -right-2 w-8 h-8 bg-black text-white rounded-full flex items-center justify-center text-xs font-bold border-2 border-white">
+                  <div className="w-40 h-40 mx-auto bg-white rounded-full border-4 border-white shadow-2xl flex items-center justify-center mb-8 group-hover:scale-110 group-hover:border-primary transition-all duration-300 relative z-20 floating-icon overflow-hidden">
+                    <img
+                      src={item.img}
+                      alt={item.title}
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-300"></div>
+
+                    <div className="absolute top-0 right-0 w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center text-sm font-bold border-2 border-white shadow-lg">
                       {item.step}
                     </div>
                   </div>
 
-                  <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
-                    <h4 className="text-lg font-bold text-slate-900 mb-2">{item.title}</h4>
+                  <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 relative z-30">
+                    <h4 className="text-xl font-bold text-slate-900 mb-2">{item.title}</h4>
                     <p className="text-sm text-slate-500">{item.desc}</p>
                   </div>
                 </div>
@@ -399,7 +417,7 @@ export default function Home() {
             </SectionWrapper>
             <SectionWrapper delay={0.2}>
               <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 text-center w-48 hover:-translate-y-1 transition-transform">
-                <CheckCircle2 className="mx-auto w-10 h-10 mb-4 text-primary" />
+                <img src="/logos/tuv-nord-vector-logo.png" alt="TUV Nord" className="mx-auto h-12 w-auto mb-4 object-contain" />
                 <div className="text-xs font-bold uppercase text-slate-900">TUV Nord</div>
               </div>
             </SectionWrapper>
