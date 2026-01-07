@@ -174,6 +174,9 @@ export default function RenewablePage() {
                                 <PanelItem title="Specialty Panels" desc="C&R Panels for substations" />
                                 <PanelItem title="Compact Substations" desc="CSS solutions for rapid deployment" />
                             </div>
+                            <div className="mt-8 flex justify-start">
+                                <MicroCTA text="Contact Sales" variant="connect" href="/contact" />
+                            </div>
                         </div>
 
                         <div className="lg:w-1/2 reveal delay-200">
