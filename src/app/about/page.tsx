@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import SectionWrapper from "@/components/SectionWrapper";
 import Link from "next/link";
 import { CheckCircle2 } from "lucide-react";
+import MicroCTA from "@/components/ui/MicroCTA";
 
 // NOTE: Navbar and Footer are provided globally by layout.tsx
 // Importing them here would cause duplication.
@@ -47,7 +48,7 @@ export default function AboutPage() {
             <section className="section-hero relative min-h-[80vh] flex items-center justify-center text-center px-6">
                 {/* Transparent background to show global 3D Globe/Particles */}
                 <div className="z-10 max-w-4xl">
-                    <h1 className="text-6xl md:text-8xl font-black text-white mb-6 font-heading reveal">
+                    <h1 className="text-4xl md:text-8xl font-black text-white mb-6 font-heading reveal">
                         Engineering <span className="text-primary">Legacy</span>
                     </h1>
                     <p className="text-gray-300 text-xl md:text-2xl font-light reveal delay-100">
@@ -76,8 +77,8 @@ export default function AboutPage() {
                                 <div className="text-xs font-bold text-slate-400 uppercase tracking-wider">Manpower</div>
                             </div>
                             <div>
-                                <div className="text-4xl font-extrabold text-primary mb-1">500+</div>
-                                <div className="text-xs font-bold text-slate-400 uppercase tracking-wider">Customers</div>
+                                <div className="text-4xl font-extrabold text-primary mb-1">1,000+</div>
+                                <div className="text-xs font-bold text-slate-400 uppercase tracking-wider">Projects</div>
                             </div>
                         </div>
                     </div>
@@ -129,42 +130,41 @@ export default function AboutPage() {
             <section className="section-light py-32 bg-white rounded-t-[40px] relative z-20">
                 <div className="max-w-7xl mx-auto px-6">
                     <h2 className="text-4xl font-bold text-slate-900 text-center mb-16 font-heading reveal">Leadership</h2>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-
-                        {/* Founder */}
-                        <div className="premium-card p-8 bg-gray-50 rounded-2xl border border-gray-100 hover:shadow-xl transition-shadow reveal group">
-                            <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mb-6 shadow-sm mx-auto group-hover:scale-110 transition-transform">
-                                {/* Using a generic user icon as requested */}
-                                <svg className="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" />
-                                </svg>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                        {[
+                            {
+                                name: "Jay Patel",
+                                role: "Director",
+                                img: "https://adaptive-engg.com/wp-content/uploads/2023/09/Jay-1.png.webp"
+                            },
+                            {
+                                name: "Keyur Amin",
+                                role: "C.E.O",
+                                img: "https://adaptive-engg.com/wp-content/uploads/2023/09/Keyur-1.png.webp"
+                            },
+                            {
+                                name: "Ajit Patel",
+                                role: "Technical Advisor",
+                                img: "https://adaptive-engg.com/wp-content/uploads/2023/06/ajit.png.webp"
+                            },
+                            {
+                                name: "Chintan Patel",
+                                role: "Head Sales",
+                                img: "https://adaptive-engg.com/wp-content/uploads/2023/09/Chintan-1.png.webp"
+                            }
+                        ].map((leader, i) => (
+                            <div key={i} className="premium-card p-6 bg-gray-50 rounded-2xl border border-gray-100 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 reveal group" style={{ transitionDelay: `${i * 100}ms` }}>
+                                <div className="w-32 h-32 bg-white rounded-full flex items-center justify-center mb-6 shadow-md mx-auto overflow-hidden group-hover:scale-105 transition-transform border-4 border-white">
+                                    <img
+                                        src={leader.img}
+                                        alt={leader.name}
+                                        className="w-full h-full object-cover object-top"
+                                    />
+                                </div>
+                                <h3 className="text-xl font-bold text-slate-900 text-center mb-1">{leader.name}</h3>
+                                <p className="text-primary font-bold text-xs uppercase tracking-widest text-center">{leader.role}</p>
                             </div>
-                            <h3 className="text-xl font-bold text-slate-900 text-center mb-2">Founder</h3>
-                            <p className="text-gray-500 text-sm text-center leading-relaxed">Visionary Leader with 30+ years in Power Sector.</p>
-                        </div>
-
-                        {/* Director Ops */}
-                        <div className="premium-card p-8 bg-gray-50 rounded-2xl border border-gray-100 hover:shadow-xl transition-shadow reveal group delay-100">
-                            <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mb-6 shadow-sm mx-auto group-hover:scale-110 transition-transform">
-                                <svg className="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" />
-                                </svg>
-                            </div>
-                            <h3 className="text-xl font-bold text-slate-900 text-center mb-2">Director Ops</h3>
-                            <p className="text-gray-500 text-sm text-center leading-relaxed">Expert in Supply Chain & Lean Manufacturing.</p>
-                        </div>
-
-                        {/* Tech Lead */}
-                        <div className="premium-card p-8 bg-gray-50 rounded-2xl border border-gray-100 hover:shadow-xl transition-shadow reveal group delay-200">
-                            <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mb-6 shadow-sm mx-auto group-hover:scale-110 transition-transform">
-                                <svg className="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" />
-                                </svg>
-                            </div>
-                            <h3 className="text-xl font-bold text-slate-900 text-center mb-2">Tech Lead</h3>
-                            <p className="text-gray-500 text-sm text-center leading-relaxed">Architect of the Unified Renewable Stack.</p>
-                        </div>
-
+                        ))}
                     </div>
                 </div>
             </section>
@@ -181,10 +181,6 @@ export default function AboutPage() {
                         <div className="flex items-center gap-3 font-bold text-slate-700 text-xl">
                             <CheckCircle2 className="w-8 h-8 text-blue-600" />
                             TUV Nord Certified
-                        </div>
-                        <div className="flex items-center gap-3 font-bold text-slate-700 text-xl">
-                            <CheckCircle2 className="w-8 h-8 text-orange-500" />
-                            Startup India
                         </div>
                     </div>
                 </div>

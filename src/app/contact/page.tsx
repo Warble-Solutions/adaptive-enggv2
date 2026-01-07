@@ -142,11 +142,17 @@ export default function ContactPage() {
                             </div>
 
                             {/* Map Placeholder */}
-                            <div className="w-full h-64 bg-slate-100 rounded-3xl border-2 border-slate-200 border-dashed flex items-center justify-center relative overflow-hidden group">
-                                <div className="absolute inset-0 bg-slate-200/50 transform skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
-                                <span className="text-slate-400 font-bold tracking-widest flex items-center gap-2">
-                                    <MapPin className="w-5 h-5" /> HQ LOCATION MAP
-                                </span>
+                            <div className="w-full h-56 md:h-72 min-h-[240px] bg-slate-100 rounded-2xl overflow-hidden border border-slate-200 relative">
+                                <iframe
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3671.936636737389!2d72.5732143154236!3d23.02606512197686!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e84f7f6a704f1%3A0xc6c7c5c8c5c5c5c5!2sReserve%20Bank%20of%20India%2C%20Ashram%20Rd%2C%20Ahmedabad!5e0!3m2!1sen!2sin!4v1675840000000!5m2!1sen!2sin"
+                                    width="100%"
+                                    height="100%"
+                                    style={{ border: 0 }}
+                                    allowFullScreen={true}
+                                    loading="lazy"
+                                    referrerPolicy="no-referrer-when-downgrade"
+                                    className="absolute inset-0 w-full h-full"
+                                ></iframe>
                             </div>
                         </div>
                     </div>
@@ -167,7 +173,7 @@ export default function ContactPage() {
                             { title: "Technical Support", desc: "For O&M and Troubleshooting.", email: "support@adaptive-engg.com", icon: <LifeBuoy /> },
                             { title: "HR & Careers", desc: "Join the engineering corps.", email: "hr@adaptive-engg.com", icon: <Building2 /> }
                         ].map((item, i) => (
-                            <div key={i} className="dark-card p-10 bg-white/5 border border-white/10 rounded-2xl hover:bg-white/10 hover:border-primary/50 transition-all duration-300 group reveal cursor-pointer text-center">
+                            <div key={i} className="dark-card p-10 bg-white/5 border border-white/10 rounded-2xl hover:bg-white/10 hover:border-primary/50 hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 group reveal cursor-pointer text-center">
                                 <div className="mb-6 w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center text-primary mx-auto group-hover:scale-110 transition-transform">
                                     {item.icon}
                                 </div>
@@ -193,7 +199,7 @@ export default function ContactPage() {
                             { city: "Kolkata", role: "East Zone Support" },
                             { city: "Chennai", role: "South Zone Operations" }
                         ].map((office, i) => (
-                            <div key={i} className="text-center p-6 border border-gray-100 rounded-2xl hover:border-primary/30 hover:bg-gray-50 transition-colors">
+                            <div key={i} className="text-center p-6 border border-gray-100 rounded-2xl hover:border-primary/30 hover:bg-gray-50 hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
                                 <div className="text-2xl font-bold text-slate-900 mb-1">{office.city}</div>
                                 <div className="text-xs font-bold text-slate-500 uppercase tracking-wider">{office.role}</div>
                             </div>

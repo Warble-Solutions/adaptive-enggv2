@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 import Link from "next/link";
 import { ArrowRight, ChevronRight, Zap, Cloud, Database, FileText, Settings, ShieldCheck, Sun } from "lucide-react";
+import MicroCTA from "@/components/ui/MicroCTA";
 // Navbar and Footer are globally in layout
 
 export default function PmKusumPage() {
@@ -99,7 +100,7 @@ export default function PmKusumPage() {
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                         {/* SolarWiz */}
-                        <div className="dark-card p-8 bg-white/5 border border-white/10 rounded-2xl hover:bg-white/10 hover:border-primary/50 transition-all duration-300 group reveal cursor-pointer">
+                        <div className="dark-card p-8 bg-white/5 border border-white/10 rounded-2xl hover:bg-white/10 hover:border-primary/50 hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 group reveal cursor-pointer">
                             <div className="mb-6 w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
                                 <Zap />
                             </div>
@@ -108,7 +109,7 @@ export default function PmKusumPage() {
                         </div>
 
                         {/* CMS */}
-                        <div className="dark-card p-8 bg-white/5 border border-white/10 rounded-2xl hover:bg-white/10 hover:border-primary/50 transition-all duration-300 group reveal cursor-pointer delay-100">
+                        <div className="dark-card p-8 bg-white/5 border border-white/10 rounded-2xl hover:bg-white/10 hover:border-primary/50 hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 group reveal cursor-pointer delay-100">
                             <div className="mb-6 w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center text-blue-400 group-hover:scale-110 transition-transform">
                                 <Cloud />
                             </div>
@@ -117,13 +118,16 @@ export default function PmKusumPage() {
                         </div>
 
                         {/* ReportWiz */}
-                        <div className="dark-card p-8 bg-white/5 border border-white/10 rounded-2xl hover:bg-white/10 hover:border-primary/50 transition-all duration-300 group reveal cursor-pointer delay-200">
+                        <div className="dark-card p-8 bg-white/5 border border-white/10 rounded-2xl hover:bg-white/10 hover:border-primary/50 hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 group reveal cursor-pointer delay-200">
                             <div className="mb-6 w-12 h-12 bg-amber-500/20 rounded-lg flex items-center justify-center text-amber-400 group-hover:scale-110 transition-transform">
                                 <FileText />
                             </div>
                             <h3 className="text-xl font-bold mb-2 text-white">ReportWiz</h3>
                             <p className="text-gray-400 text-sm leading-relaxed">Automated generation of JMR (Joint Meter Reading) and subsidy compliance reports.</p>
                         </div>
+                    </div>
+                    <div className="mt-12 flex justify-center">
+                        <MicroCTA text="Download SolarWiz Datasheet" variant="download" href="#" />
                     </div>
                 </div>
             </section>
@@ -152,6 +156,9 @@ export default function PmKusumPage() {
                             desc="Seamless integration with bidirectional meters."
                             icon={<Database className="w-8 h-8 text-slate-700" />}
                         />
+                    </div>
+                    <div className="mt-12 flex justify-center">
+                        <MicroCTA text="Get RMS Pricing" variant="connect" href="/contact" />
                     </div>
                 </div>
             </section>
@@ -189,7 +196,7 @@ export default function PmKusumPage() {
 // Helper Card
 function HardwareCard({ title, desc, icon }: { title: string; desc: string; icon: React.ReactNode }) {
     return (
-        <div className="premium-card p-8 bg-gray-50 rounded-2xl border border-gray-100 hover:shadow-xl transition-all duration-300 reveal group hover:-translate-y-1">
+        <div className="premium-card p-8 bg-gray-50 rounded-2xl border border-gray-100 hover:shadow-xl transition-all duration-300 reveal group hover:-translate-y-2">
             <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mb-6 shadow-sm group-hover:scale-110 transition-transform">
                 {icon}
             </div>

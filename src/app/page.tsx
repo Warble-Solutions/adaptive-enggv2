@@ -1,16 +1,63 @@
 "use client";
 
+import { useEffect, useRef } from "react";
+import EventsCalendar from "@/components/EventsCalendar";
+import UpcomingEventsSection from "@/components/UpcomingEventsSection";
+import HeroCarousel from "@/components/HeroCarousel";
 import SectionWrapper from "@/components/SectionWrapper";
 import Link from "next/link";
-import Image from "next/image";
-import { ArrowRight, ShieldCheck, Activity, HardHat, CheckCircle2 } from "lucide-react";
-import HeroCarousel from "@/components/HeroCarousel";
+import MicroCTA from "@/components/ui/MicroCTA";
+import { ArrowRight, ShieldCheck, Activity, HardHat, CheckCircle2, PenTool, Factory, Zap, BarChart3, Blocks, Link2 } from "lucide-react";
 
 export default function Home() {
+  useEffect(() => {
+    const initAnime = async () => {
+      // @ts-ignore
+      const animeModule = await import("animejs") as any;
+      const anime = animeModule.default || animeModule;
+
+      if (!anime) return;
+
+      const runAnime = typeof anime === 'function' ? anime : animeModule.anime;
+
+      if (typeof runAnime === 'function') {
+        // 1. Standard Reveal Animation
+        runAnime({
+          targets: ".reveal",
+          translateY: [20, 0],
+          opacity: [0, 1],
+          easing: "easeOutExpo",
+          duration: 1000,
+          delay: (el: any, i: number) => i * 100,
+        });
+
+        // 2. Protocol "Pulse" Animation (Infinite Flow)
+        runAnime({
+          targets: '.protocol-pulse',
+          strokeDashoffset: [anime.setDashoffset, 0],
+          easing: 'linear',
+          duration: 3000,
+          loop: true
+        });
+
+        // 3. Floating Icons (Bobbing effect)
+        runAnime({
+          targets: '.floating-icon',
+          translateY: [-5, 5],
+          direction: 'alternate',
+          loop: true,
+          easing: 'easeInOutSine',
+          duration: 2000,
+          delay: runAnime.stagger(200)
+        });
+      }
+    };
+    initAnime();
+  }, []);
   return (
     <div className="flex flex-col">
       {/* 1. HERO CAROUSEL */}
-      <section className="relative h-screen bg-transparent">
+      <section className="relative min-h-screen pt-32 md:pt-0 bg-transparent">
         <HeroCarousel />
         {/* Scroll Indicator */}
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2 opacity-50 z-20 animate-bounce">
@@ -60,14 +107,14 @@ export default function Home() {
       {/* 3. STATS GRID (Light) */}
       <section className="py-24 bg-white z-20">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-12 text-center">
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 text-center">
             {[
               { val: "16+", label: "Years Experience" },
-              { val: "300+", label: "Engineers" },
+              { val: "300+", label: "Manpower" },
               { val: "68 GW+", label: "Assets Monitored" },
-              { val: "125,000+", label: "Sq. Ft. Manufacturing Facility" },
-              { val: "10,000+", label: "Electrical Panels Supplied" },
-              { val: "1,000+", label: "Projects Completed" }
+              { val: "125,000+", label: "Sq. Ft. Facility" },
+              { val: "1,000+", label: "Projects Executed" },
+              { val: "500+", label: "Plants Monitored" }
             ].map((stat, i) => (
               <SectionWrapper key={i} delay={i * 0.1}>
                 <div className="text-5xl font-extrabold text-slate-900 font-heading mb-2">{stat.val}</div>
@@ -75,23 +122,24 @@ export default function Home() {
               </SectionWrapper>
             ))}
           </div>
+
         </div>
       </section>
 
       {/* 4. CORE SOLUTIONS (Dark) */}
       <section className="py-32 bg-transparent rounded-b-[40px] z-10 relative shadow-2xl">
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="w-full max-w-[1800px] mx-auto px-6 md:px-12">
           <div className="mb-24 text-center">
             <SectionWrapper>
-              <h2 className="text-5xl font-bold text-white mb-6 font-heading">Our Solutions</h2>
-              <div className="w-20 h-1 bg-primary mx-auto rounded-full"></div>
+              <h2 className="text-5xl font-bold text-white font-heading">Our Solutions</h2>
+              <div className="w-20 h-1 bg-primary mx-auto rounded-full mt-6"></div>
             </SectionWrapper>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <SectionWrapper delay={0.1}>
-              <div className="bg-white/5 backdrop-blur-md rounded-2xl p-8 border border-white/10 hover:bg-white/10 hover:border-primary transition-all group cursor-pointer h-full">
-                <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&w=150&q=80" className="w-20 h-20 rounded-2xl object-cover mb-8 border-2 border-primary shadow-lg group-hover:scale-110 transition-transform" alt="Renewable" />
+              <div className="bg-white/5 backdrop-blur-md rounded-2xl p-8 border border-white/10 hover:bg-white/10 hover:border-primary hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 group cursor-pointer h-full">
+                <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&w=150&q=80" className="w-20 h-20 rounded-2xl object-cover mb-8 border-2 border-primary shadow-lg group-hover:scale-110 transition-transform duration-500" alt="Renewable" />
                 <h3 className="text-2xl font-bold text-white mb-4">Renewable Solutions</h3>
                 <p className="text-gray-400 leading-relaxed mb-8">End-to-end services: Conceptualizing, designing, and commissioning electrical systems up to 66KV. Solar, Wind, and Hybrid plant integration.</p>
                 <Link href="/renewable" className="text-white text-sm font-bold border-b border-primary pb-1 group-hover:text-primary transition-colors z-20 relative">Learn More</Link>
@@ -99,8 +147,8 @@ export default function Home() {
             </SectionWrapper>
 
             <SectionWrapper delay={0.2}>
-              <div className="bg-white/5 backdrop-blur-md rounded-2xl p-8 border border-white/10 hover:bg-white/10 hover:border-primary transition-all group cursor-pointer h-full relative">
-                <img src="https://adaptive-engg.com/wp-content/uploads/2024/10/Untitled-design-13-1-480x340.png" className="w-20 h-20 rounded-2xl object-cover mb-8 border-2 border-primary shadow-lg group-hover:scale-110 transition-transform" alt="KUSUM" />
+              <div className="bg-white/5 backdrop-blur-md rounded-2xl p-8 border border-white/10 hover:bg-white/10 hover:border-primary hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 group cursor-pointer h-full relative">
+                <img src="https://adaptive-engg.com/wp-content/uploads/2024/10/Untitled-design-13-1-480x340.png" className="w-20 h-20 rounded-2xl object-cover mb-8 border-2 border-primary shadow-lg group-hover:scale-110 transition-transform duration-500" alt="KUSUM" />
                 <h3 className="text-2xl font-bold text-white mb-4">PM-KUSUM Solutions</h3>
                 <p className="text-gray-400 leading-relaxed mb-8">Industrial IoT powered by SolarWiz, WaterWiz, and MachineWiz. Real-time telemetry for agricultural pumps and water supply schemes.</p>
                 <Link href="/pm-kusum" className="text-white text-sm font-bold border-b border-primary pb-1 group-hover:text-primary transition-colors z-20 relative">Learn More</Link>
@@ -108,19 +156,25 @@ export default function Home() {
             </SectionWrapper>
 
             <SectionWrapper delay={0.3}>
-              <div className="bg-white/5 backdrop-blur-md rounded-2xl p-8 border border-white/10 hover:bg-white/10 hover:border-primary transition-all group cursor-pointer h-full">
-                <img src="https://adaptive-engg.com/wp-content/uploads/2023/08/tunnel-mp.png.webp" className="w-20 h-20 rounded-2xl object-cover mb-8 border-2 border-primary shadow-lg group-hover:scale-110 transition-transform" alt="Infra" />
+              <div className="bg-white/5 backdrop-blur-md rounded-2xl p-8 border border-white/10 hover:bg-white/10 hover:border-primary hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 group cursor-pointer h-full">
+                <img src="https://adaptive-engg.com/wp-content/uploads/2023/08/tunnel-mp.png.webp" className="w-20 h-20 rounded-2xl object-cover mb-8 border-2 border-primary shadow-lg group-hover:scale-110 transition-transform duration-500" alt="Infra" />
                 <h3 className="text-2xl font-bold text-white mb-4">Infrastructure Solutions</h3>
                 <p className="text-gray-400 leading-relaxed mb-8">Specialized automation for Tunnels and Data Centers. In-house manufacturing of HT/LT Panels, MCC, and PCC for heavy industry.</p>
                 <span className="text-white text-sm font-bold border-b border-primary pb-1 group-hover:text-primary transition-colors">Learn More</span>
               </div>
             </SectionWrapper>
           </div>
-        </div>
-      </section>
+
+          <div className="mt-12 text-center">
+            <SectionWrapper delay={0.4}>
+              <MicroCTA text="View All Capabilities" variant="connect" href="/renewable" />
+            </SectionWrapper>
+          </div>
+        </div >
+      </section >
 
       {/* 5. TECH HIGHLIGHT (Light) */}
-      <section className="py-32 bg-light z-0 -mt-20 pt-44">
+      < section className="py-24 bg-light z-0" >
         <div className="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row items-center gap-20">
           <div className="lg:w-1/2">
             <SectionWrapper>
@@ -130,15 +184,15 @@ export default function Home() {
                 Our proprietary software provides Central Plant Monitoring and Mobile Asset Management. With an installed base of over 68GW, we ensure optimal performance across 500+ plants.
               </p>
               <div className="grid grid-cols-2 gap-4">
-                <div className="p-6 bg-white rounded-2xl shadow-sm border border-gray-100 flex items-center gap-4">
-                  <Activity className="text-primary w-8 h-8" />
+                <div className="p-6 bg-white rounded-2xl shadow-sm border border-gray-100 flex items-center gap-4 hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
+                  <Activity className="text-primary w-8 h-8 group-hover:scale-110 transition-transform" />
                   <div>
                     <h4 className="font-bold text-slate-900">Real-Time</h4>
                     <p className="text-xs text-slate-500">Telemetry</p>
                   </div>
                 </div>
-                <div className="p-6 bg-white rounded-2xl shadow-sm border border-gray-100 flex items-center gap-4">
-                  <ShieldCheck className="text-primary w-8 h-8" />
+                <div className="p-6 bg-white rounded-2xl shadow-sm border border-gray-100 flex items-center gap-4 hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
+                  <ShieldCheck className="text-primary w-8 h-8 group-hover:scale-110 transition-transform" />
                   <div>
                     <h4 className="font-bold text-slate-900">Secure</h4>
                     <p className="text-xs text-slate-500">Asset Mgmt</p>
@@ -159,10 +213,10 @@ export default function Home() {
             </SectionWrapper>
           </div>
         </div>
-      </section>
+      </section >
 
       {/* 6. PROJECTS (Dark) */}
-      <section className="py-32 bg-transparent rounded-t-[40px] z-10 relative">
+      < section className="py-32 bg-transparent rounded-t-[40px] z-10 relative" >
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex justify-between items-end mb-16 border-b border-white/10 pb-6">
             <SectionWrapper>
@@ -195,33 +249,118 @@ export default function Home() {
             </SectionWrapper>
           </div>
         </div>
-      </section>
+      </section >
 
-      {/* 7. PROTOCOL (Light) */}
-      <section className="py-32 bg-light z-20">
+      {/* 7. SCALABILITY (Light) */}
+      < section className="section-light py-24 bg-white relative z-20" >
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <SectionWrapper>
+              <h2 className="text-4xl font-bold text-slate-900 mb-2 font-heading">Built to Grow</h2>
+              <p className="text-primary font-bold uppercase tracking-widest text-sm">Future Proof Architecture</p>
+            </SectionWrapper>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              { title: "Modular Architecture", desc: "Scale effortlessly from 50MW to 5GW. Our plug-and-play architecture allows you to add capacity or new assets (like BESS) without disrupting core operations.", icon: <Blocks className="w-6 h-6" /> },
+              { title: "Universal Compatibility", desc: "True vendor independence. We seamlessly integrate with all major inverter makes (Huawei, Sungrow, SMA) and turbine protocols, unifying your entire portfolio.", icon: <Link2 className="w-6 h-6" /> },
+              { title: "Grid Future-Proofing", desc: "Stay ahead of regulations. Our systems are pre-configured for the latest IEGC grid codes, frequency response norms, and upcoming scheduling requirements.", icon: <ShieldCheck className="w-6 h-6" /> }
+            ].map((item, i) => (
+              <SectionWrapper key={i} delay={i * 0.1}>
+                <div className="premium-card p-8 bg-gray-50 rounded-2xl border border-gray-100 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group h-full">
+                  <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center mb-6 shadow-sm text-primary group-hover:scale-110 transition-transform">
+                    {item.icon}
+                  </div>
+                  <h3 className="text-xl font-bold text-slate-900 mb-4">{item.title}</h3>
+                  <p className="text-slate-600 leading-relaxed text-sm">{item.desc}</p>
+                </div>
+              </SectionWrapper>
+            ))}
+          </div>
+        </div>
+      </section >
+
+      {/* 8. TESTIMONIALS (Dark) */}
+      < section className="section-dark py-24 bg-transparent relative z-10" >
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <SectionWrapper>
+              <h2 className="text-4xl font-bold text-white mb-2 font-heading">Trusted Voices</h2>
+              <p className="text-gray-400 font-bold uppercase tracking-widest text-sm">Powering India&apos;s energy leaders</p>
+            </SectionWrapper>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              { quote: "I appreciate the exceptional work of Adaptive Engineering Pvt. Ltd. Their commitment to excellence, attention to details and proactive mindset have significantly contributed to the success of our projects.", author: "Advisor - Solar O&M", company: "Tata Power", initial: "T" },
+              { quote: "I have no hesitation in recommending AEPL to anyone seeking reliable and efficient solar monitoring solutions. The combination of cutting-edge technology, expert knowledge, and outstanding customer service makes AEPL the ideal partner.", author: "Director", company: "WAAREE Renewable Technologies Ltd.", initial: "W" },
+              { quote: "Our Machine Automation Solutions are powered by AEPL and we highly recommend the same.", author: "Managing Director", company: "Clartech Engineers Pvt. Ltd.", initial: "C" }
+            ].map((item, i) => (
+              <SectionWrapper key={i} delay={i * 0.1}>
+                <div className="dark-card p-8 bg-white/5 border border-white/10 rounded-3xl hover:bg-white/10 transition-all duration-300 flex flex-col justify-between h-full">
+                  <div>
+                    <div className="mb-6 text-primary text-4xl">❝</div>
+                    <p className="text-gray-300 leading-relaxed italic mb-8 text-sm">&quot;{item.quote}&quot;</p>
+                  </div>
+                  <div className="flex items-center gap-4">
+                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-teal-600 flex items-center justify-center text-white font-bold text-lg">
+                      {item.initial}
+                    </div>
+                    <div>
+                      <div className="font-bold text-white text-sm">{item.author}</div>
+                      <div className="text-xs text-gray-500 uppercase tracking-wider">{item.company}</div>
+                    </div>
+                  </div>
+                </div>
+              </SectionWrapper>
+            ))}
+          </div>
+        </div>
+      </section >
+
+      {/* 9. PROTOCOL (Light) */}
+      < section className="py-32 bg-light z-20" >
         <div className="max-w-7xl mx-auto px-6 text-center">
           <SectionWrapper>
             <h2 className="text-4xl font-extrabold text-slate-900 mb-20 font-heading">The Protocol</h2>
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div className="relative grid grid-cols-1 md:grid-cols-4 gap-8">
+              {/* Connector Line (Desktop) */}
+              <div className="hidden md:block absolute top-[45px] left-[10%] right-[10%] h-[2px] z-0">
+                <svg width="100%" height="2" className="overflow-visible">
+                  <line x1="0" y1="1" x2="100%" y2="1" stroke="currentColor" strokeWidth="2" strokeDasharray="10 10" className="text-primary/30" />
+                  <line x1="0" y1="1" x2="100%" y2="1" stroke="currentColor" strokeWidth="2" strokeDasharray="10 10" className="text-primary protocol-pulse opacity-50" />
+                </svg>
+              </div>
+
               {[
-                { step: "01", title: "Conceptualize", desc: "Design & Feasibility" },
-                { step: "02", title: "Manufacture", desc: "In-house Panel Fabrication" },
-                { step: "03", title: "Commission", desc: "Install & Test up to 66KV" },
-                { step: "04", title: "Monitor", desc: "24/7 ReportWiz Analytics" }
+                { step: "01", title: "Conceptualize", desc: "Design & Feasibility", icon: <PenTool className="w-6 h-6" /> },
+                { step: "02", title: "Manufacture", desc: "In-house Panel Fabrication", icon: <Factory className="w-6 h-6" /> },
+                { step: "03", title: "Commission", desc: "Install & Test up to 66KV", icon: <Zap className="w-6 h-6" /> },
+                { step: "04", title: "Monitor", desc: "24/7 ReportWiz Analytics", icon: <BarChart3 className="w-6 h-6" /> }
               ].map((item, i) => (
-                <div key={i} className="p-8 hover:bg-white hover:shadow-xl transition rounded-2xl group relative">
-                  <div className="text-6xl font-bold text-primary/20 mb-[-30px] group-hover:opacity-100 transition duration-500">{item.step}</div>
-                  <h4 className="text-xl font-bold text-slate-900 mb-2 relative z-10">{item.title}</h4>
-                  <p className="text-sm text-gray-500">{item.desc}</p>
+                <div key={i} className="group relative z-10 mb-12 md:mb-0">
+                  <div className="w-24 h-24 mx-auto bg-white rounded-full border-4 border-gray-50 shadow-xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:border-primary/30 transition-all duration-300 relative z-20 floating-icon">
+                    <div className="w-20 h-20 bg-gray-50 rounded-full flex items-center justify-center text-slate-400 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+                      {item.icon}
+                    </div>
+                    <div className="absolute -top-2 -right-2 w-8 h-8 bg-black text-white rounded-full flex items-center justify-center text-xs font-bold border-2 border-white">
+                      {item.step}
+                    </div>
+                  </div>
+
+                  <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+                    <h4 className="text-lg font-bold text-slate-900 mb-2">{item.title}</h4>
+                    <p className="text-sm text-slate-500">{item.desc}</p>
+                  </div>
                 </div>
               ))}
             </div>
+
           </SectionWrapper>
         </div>
-      </section>
+      </section >
 
       {/* 8. IMPACT (Dark) */}
-      <section className="py-32 bg-transparent">
+      < section className="py-32 bg-transparent" >
         <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-12 text-white">
           <SectionWrapper>
             <h2 className="text-4xl font-bold mb-4 font-heading">Impact & Scale</h2>
@@ -238,10 +377,10 @@ export default function Home() {
             </SectionWrapper>
           </div>
         </div>
-      </section>
+      </section >
 
       {/* 9. SAFETY (Light) */}
-      <section className="py-24 bg-light border-t border-gray-100">
+      < section className="py-24 bg-light border-t border-gray-100" >
         <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-12">
           <div className="md:w-1/2">
             <SectionWrapper>
@@ -266,20 +405,20 @@ export default function Home() {
             </SectionWrapper>
           </div>
         </div>
-      </section>
+      </section >
 
       {/* 10. CTA (Dark) */}
-      <section className="py-40 bg-transparent text-center relative z-10">
+      < section className="py-40 bg-transparent text-center relative z-10" >
         <div className="max-w-3xl mx-auto px-6">
           <SectionWrapper>
-            <h2 className="text-6xl mb-8 font-black text-white font-heading">Ready to <span className="text-primary">Scale?</span></h2>
+            <h2 className="text-4xl md:text-6xl mb-8 font-black text-white font-heading">Ready to <span className="text-primary">Scale?</span></h2>
             <p className="text-xl text-gray-400 mb-12">Partner with the &quot;Preferred Project Partner&quot; of India&apos;s largest corporate houses.</p>
             <Link href="/contact" className="inline-block px-12 py-4 bg-gradient-to-r from-primary to-teal-700 text-white rounded-full font-bold uppercase tracking-wider text-lg shadow-xl shadow-teal-900/50 hover:scale-105 transition-transform">
               Start Discussion
             </Link>
           </SectionWrapper>
         </div>
-      </section>
-    </div>
+      </section >
+    </div >
   );
 }

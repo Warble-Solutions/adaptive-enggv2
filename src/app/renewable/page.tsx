@@ -2,7 +2,10 @@
 
 import { useEffect } from "react";
 import Link from "next/link";
-import { ArrowRight, ChevronRight, Server, Zap, Shield, BarChart3, Settings, Battery, CheckCircle2, Factory, Cable } from "lucide-react";
+import { ArrowRight, ChevronRight, Server, Zap, Shield, BarChart3, Settings, Battery, CheckCircle2, Factory, Cable, Monitor, Cpu, Network, PieChart, Wrench } from "lucide-react";
+import Image from "next/image";
+import MicroCTA from "@/components/ui/MicroCTA";
+import DowntimeCalculator from "@/components/DowntimeCalculator";
 // Navbar and Footer are globally in layout
 
 export default function RenewablePage() {
@@ -64,22 +67,96 @@ export default function RenewablePage() {
                         <p className="text-gray-400 max-w-2xl mx-auto">An integrated digital ecosystem ensuring grid compliance and asset longevity.</p>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {[
-                            { title: "SolarWiz / SCADA", desc: "Real-time data acquisition and plant control.", icon: <Server /> },
-                            { title: "PPC", desc: "Active/Reactive power control and frequency regulation.", icon: <Settings /> },
-                            { title: "Advanced Analytics", desc: "Machine learning for generation forecasting and PR analysis.", icon: <BarChart3 /> },
-                            { title: "CMS", desc: "Central Monitoring System for multi-plant management.", icon: <Shield /> }
+                            {
+                                title: "SCADA",
+                                icon: <Monitor />,
+                                bullets: [
+                                    "Flexible & Scalable Architecture",
+                                    "Rich set of Renewable Libraries",
+                                    "Seamless Handling of 10 Lacs+ Tags",
+                                    "Refined interface from decades of experience"
+                                ]
+                            },
+                            {
+                                title: "Power Plant Controller (PPC)",
+                                icon: <Cpu />,
+                                bullets: [
+                                    "Grid Code Compliant",
+                                    "HIL Type Tested",
+                                    "Automatic Generation Control (AGC) Ready",
+                                    "Forecast & Schedule Synchronization"
+                                ]
+                            },
+                            {
+                                title: "Central Monitoring System (CMS)",
+                                icon: <Shield />, // Shield works, or Network
+                                bullets: [
+                                    "Insightful View of Entire Portfolio",
+                                    "Measure KPIs against Targeted Data",
+                                    "ML Based Anomaly Detection",
+                                    "Conversational AI Assistant"
+                                ]
+                            },
+                            {
+                                title: "Advanced Analytics",
+                                icon: <PieChart />,
+                                bullets: [
+                                    "Advanced Data Visualization",
+                                    "Accurate Loss Buckets",
+                                    "Custom Report Builder",
+                                    "Analyse Historical Data"
+                                ]
+                            },
+                            {
+                                title: "CMMS",
+                                icon: <Wrench />,
+                                bullets: [
+                                    "Automated Workorder Management",
+                                    "Standardized SOPs Across Enterprise",
+                                    "Reduced Mean Time to Repair",
+                                    "Cost Control & Inventory Management"
+                                ]
+                            },
+                            {
+                                title: "EMS - BESS",
+                                icon: <Battery />,
+                                bullets: [
+                                    "Indigenous Solution",
+                                    "ML Based Energy Arbitrage",
+                                    "State of Charge (SoC) Management",
+                                    "Peak Shaving, Grid Support"
+                                ]
+                            }
                         ].map((item, i) => (
-                            <div key={i} className="dark-card p-8 bg-white/5 border border-white/10 rounded-2xl hover:bg-white/10 hover:border-primary/50 transition-all duration-300 group reveal cursor-pointer">
+                            <div key={i} className="dark-card p-8 bg-white/5 border border-white/10 rounded-2xl hover:bg-white/10 hover:border-primary/50 hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 group reveal cursor-pointer">
                                 <div className="mb-6 w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
-                                    {item.icon}
+                                    {/* Clone icon to enforce size if needed, though usually css handles it. Using wrapper. */}
+                                    <div className="w-6 h-6">{item.icon}</div>
                                 </div>
-                                <h3 className="text-xl font-bold mb-2 text-white">{item.title}</h3>
-                                <p className="text-gray-400 text-sm leading-relaxed">{item.desc}</p>
+                                <h3 className="text-xl font-bold mb-4 text-white">{item.title}</h3>
+                                <ul className="space-y-3 text-gray-400 text-sm">
+                                    {item.bullets.map((bullet, idx) => (
+                                        <li key={idx} className="flex gap-2">
+                                            <span className="text-primary mt-0.5">▸</span>
+                                            <span>{bullet}</span>
+                                        </li>
+                                    ))}
+                                </ul>
                             </div>
                         ))}
                     </div>
+                    <div className="mt-12 flex justify-center">
+                        <MicroCTA text="Get SCADA Demo" variant="connect" href="/contact" />
+                    </div>
+                </div>
+            </section>
+
+            {/* --- INTERACTIVE CALCULATOR SECTION --- */}
+            <section className="py-24 px-6 bg-slate-950">
+                <div className="max-w-7xl mx-auto">
+                    <DowntimeCalculator />
                 </div>
             </section>
 
@@ -103,17 +180,22 @@ export default function RenewablePage() {
 
                         <div className="lg:w-1/2 reveal delay-200">
                             <div className="h-[500px] bg-slate-900 rounded-3xl relative overflow-hidden shadow-2xl group">
-                                <div className="absolute inset-0 bg-gradient-to-br from-slate-800 to-black opacity-90"></div>
-                                <div className="absolute inset-0 flex items-center justify-center">
-                                    <Factory className="w-32 h-32 text-primary/20 group-hover:text-primary/40 transition-colors duration-500" />
-                                </div>
-                                <div className="absolute bottom-0 left-0 p-8 w-full bg-gradient-to-t from-black to-transparent">
+                                <Image
+                                    src="/imgs/factory.jpg"
+                                    alt="Manufacturing Unit"
+                                    fill
+                                    className="object-cover group-hover:scale-105 transition-transform duration-700"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black via-slate-900/50 to-transparent opacity-80"></div>
+
+                                <div className="absolute bottom-0 left-0 p-8 w-full">
                                     <div className="text-primary font-bold tracking-widest uppercase text-sm mb-2">State-of-the-Art</div>
                                     <div className="text-white text-2xl font-bold">Manufacturing Unit</div>
                                 </div>
                             </div>
                         </div>
                     </div>
+
                 </div>
             </section>
 
@@ -132,7 +214,7 @@ export default function RenewablePage() {
                             { title: "Liasioning", desc: "End-to-end CEIG approvals and DISCOM coordination.", color: "bg-amber-500" },
                             { title: "Testing", desc: "Pre-commissioning testing and grid synchronization.", color: "bg-green-500" }
                         ].map((item, i) => (
-                            <div key={i} className="group reveal">
+                            <div key={i} className="group reveal hover:-translate-y-1 transition-transform duration-300">
                                 <div className="h-1 bg-white/10 w-full mb-6 relative overflow-hidden">
                                     <div className={`absolute top-0 left-0 h-full w-0 ${item.color} group-hover:w-full transition-all duration-700 ease-out`}></div>
                                 </div>
@@ -155,7 +237,7 @@ export default function RenewablePage() {
                             { title: "Hybrid Projects", desc: "Solar + Wind + BESS integration." },
                             { title: "C&I (Commercial)", desc: "Captive power plants for heavy industry (Steel, Cement)." }
                         ].map((item, i) => (
-                            <div key={i} className="premium-card p-10 bg-gray-50 rounded-2xl border border-gray-100 hover:shadow-xl transition-shadow reveal hover:-translate-y-1 duration-300">
+                            <div key={i} className="premium-card p-10 bg-gray-50 rounded-2xl border border-gray-100 hover:shadow-xl transition-all reveal hover:-translate-y-2 duration-300">
                                 <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center mb-6 shadow-sm text-primary">
                                     <Zap className="w-6 h-6" />
                                 </div>
@@ -184,7 +266,7 @@ export default function RenewablePage() {
 // Helper for Panel List Item
 function PanelItem({ title, desc }: { title: string; desc: string }) {
     return (
-        <div className="flex items-start gap-3 bg-slate-50 p-4 rounded-xl border border-slate-100 hover:border-primary/50 transition-colors">
+        <div className="flex items-start gap-3 bg-slate-50 p-4 rounded-xl border border-slate-100 hover:border-primary/50 hover:bg-white hover:shadow-md hover:translate-x-1 transition-all duration-300">
             <CheckCircle2 className="w-5 h-5 text-primary mt-1 shrink-0" />
             <div>
                 <h4 className="font-bold text-slate-900 text-sm">{title}</h4>

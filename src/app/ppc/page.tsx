@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 import Link from "next/link";
 import { ArrowRight, ChevronRight, ShieldCheck, Activity, Network, Zap, Lock, Server } from "lucide-react";
+import MicroCTA from "@/components/ui/MicroCTA";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
     faChartLine,
@@ -49,7 +50,7 @@ export default function PPCPage() {
             <section className="section-hero relative min-h-[70vh] flex flex-col items-center justify-center text-center px-6 pt-32">
                 <div className="z-10 max-w-5xl">
                     <div className="inline-block px-4 py-1 bg-white/10 text-white rounded-full text-xs font-bold uppercase tracking-widest mb-6 border border-white/20 reveal">
-                        200+ Projects Executed | 40GW+ Installed Base
+                        1,000+ Projects Executed | 68 GW+ Installed Base
                     </div>
 
                     <h1 className="text-5xl md:text-7xl font-black text-white mb-6 font-heading reveal">
@@ -74,7 +75,7 @@ export default function PPCPage() {
                         </div>
 
                         <div className="reveal delay-200">
-                            <div className="premium-card p-10 bg-gradient-to-br from-red-50 to-orange-50 rounded-3xl border border-red-100 shadow-xl relative overflow-hidden">
+                            <div className="premium-card p-10 bg-gradient-to-br from-red-50 to-orange-50 rounded-3xl border border-red-100 shadow-xl relative overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
                                 <div className="relative z-10">
                                     <div className="flex items-center gap-4 mb-6 text-red-600">
                                         <Activity className="w-8 h-8" />
@@ -111,7 +112,7 @@ export default function PPCPage() {
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                         {/* 1. Sub-Second Response */}
-                        <div className="dark-card p-8 bg-white/5 border border-white/10 rounded-2xl hover:bg-white/10 hover:border-primary/50 transition-all duration-300 group reveal cursor-pointer">
+                        <div className="dark-card p-8 bg-white/5 border border-white/10 rounded-2xl hover:bg-white/10 hover:border-primary/50 hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 group reveal cursor-pointer">
                             <div className="mb-6 w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
                                 <Zap />
                             </div>
@@ -120,7 +121,7 @@ export default function PPCPage() {
                         </div>
 
                         {/* 2. Master-Slave Redundancy */}
-                        <div className="dark-card p-8 bg-white/5 border border-white/10 rounded-2xl hover:bg-white/10 hover:border-primary/50 transition-all duration-300 group reveal cursor-pointer delay-100">
+                        <div className="dark-card p-8 bg-white/5 border border-white/10 rounded-2xl hover:bg-white/10 hover:border-primary/50 hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 group reveal cursor-pointer delay-100">
                             <div className="mb-6 w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center text-blue-400 group-hover:scale-110 transition-transform">
                                 <Server />
                             </div>
@@ -129,13 +130,16 @@ export default function PPCPage() {
                         </div>
 
                         {/* 3. Cyber-Secure */}
-                        <div className="dark-card p-8 bg-white/5 border border-white/10 rounded-2xl hover:bg-white/10 hover:border-primary/50 transition-all duration-300 group reveal cursor-pointer delay-200">
+                        <div className="dark-card p-8 bg-white/5 border border-white/10 rounded-2xl hover:bg-white/10 hover:border-primary/50 hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 group reveal cursor-pointer delay-200">
                             <div className="mb-6 w-12 h-12 bg-amber-500/20 rounded-lg flex items-center justify-center text-amber-400 group-hover:scale-110 transition-transform">
                                 <Lock />
                             </div>
                             <h3 className="text-xl font-bold mb-2 text-white">Cyber-Secure</h3>
                             <p className="text-gray-400 text-sm leading-relaxed">IEC 62443 Compliant with encrypted communication and RBAC.</p>
                         </div>
+                    </div>
+                    <div className="mt-12 flex justify-center">
+                        <MicroCTA text="Download PPC Technical Specs" variant="download" href="#" />
                     </div>
                 </div>
             </section>
@@ -183,6 +187,9 @@ export default function PPCPage() {
                             color="text-primary"
                         />
                     </div>
+                    <div className="mt-12 flex justify-center">
+                        <MicroCTA text="View Case Studies" variant="connect" href="/renewable" />
+                    </div>
                 </div>
             </section>
 
@@ -224,7 +231,7 @@ export default function PPCPage() {
 // Helper Card using FontAwesome
 function ControlCard({ title, desc, icon, color }: { title: string; desc: string; icon: any; color: string }) {
     return (
-        <div className="premium-card p-8 bg-gray-50 rounded-2xl border border-gray-100 hover:shadow-xl transition-all duration-300 reveal group hover:-translate-y-1">
+        <div className="premium-card p-8 bg-gray-50 rounded-2xl border border-gray-100 hover:shadow-xl transition-all duration-300 reveal group hover:-translate-y-2">
             <div className={`w-12 h-12 bg-white rounded-xl flex items-center justify-center mb-4 shadow-sm group-hover:scale-110 transition-transform ${color}`}>
                 <FontAwesomeIcon icon={icon} className="w-5 h-5" />
             </div>
