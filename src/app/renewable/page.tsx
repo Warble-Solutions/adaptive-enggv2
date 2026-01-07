@@ -4,6 +4,8 @@ import { useEffect } from "react";
 import Link from "next/link";
 import { ArrowRight, ChevronRight, Server, Zap, Shield, BarChart3, Settings, Battery, CheckCircle2, Factory, Cable, Monitor, Cpu, Network, PieChart, Wrench } from "lucide-react";
 import Image from "next/image";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faNetworkWired, faBezierCurve, faFileSignature, faClipboardCheck } from "@fortawesome/free-solid-svg-icons";
 import MicroCTA from "@/components/ui/MicroCTA";
 import DowntimeCalculator from "@/components/DowntimeCalculator";
 // Navbar and Footer are globally in layout
@@ -54,7 +56,7 @@ export default function RenewablePage() {
                     </h1>
 
                     <p className="text-gray-300 text-xl md:text-2xl font-light reveal delay-100 max-w-3xl mx-auto leading-relaxed">
-                        The complete power value chain: From Digital Intelligence to Heavy Infrastructure.
+                        The complete power value chain: From Digital Intelligence to Heavy Infrastructure
                     </p>
                 </div>
             </section>
@@ -154,11 +156,7 @@ export default function RenewablePage() {
             </section>
 
             {/* --- INTERACTIVE CALCULATOR SECTION --- */}
-            <section className="py-24 px-6 bg-slate-950">
-                <div className="max-w-7xl mx-auto">
-                    <DowntimeCalculator />
-                </div>
-            </section>
+
 
             {/* 3. SOLUTION 2: ELECTRICAL PANELS (Light) */}
             <section className="section-light py-24 bg-white rounded-t-[40px] relative z-20">
@@ -179,18 +177,27 @@ export default function RenewablePage() {
                         </div>
 
                         <div className="lg:w-1/2 reveal delay-200">
-                            <div className="h-[500px] bg-slate-900 rounded-3xl relative overflow-hidden shadow-2xl group">
-                                <Image
-                                    src="/imgs/factory.jpg"
-                                    alt="Manufacturing Unit"
-                                    fill
-                                    className="object-cover group-hover:scale-105 transition-transform duration-700"
-                                />
-                                <div className="absolute inset-0 bg-gradient-to-t from-black via-slate-900/50 to-transparent opacity-80"></div>
+                            <div className="grid grid-cols-2 md:grid-cols-4 gap-2 h-[500px] rounded-3xl overflow-hidden shadow-2xl relative">
+                                <div className="col-span-2 row-span-2 relative group overflow-hidden">
+                                    <Image src="/imgs/manu/15.jpg" alt="Manufacturing" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
+                                    <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors"></div>
+                                </div>
+                                <div className="col-span-1 row-span-1 relative group overflow-hidden">
+                                    <Image src="/imgs/manu/16.jpg" alt="Assembly" fill className="object-cover group-hover:scale-110 transition-transform duration-700" />
+                                </div>
+                                <div className="col-span-1 row-span-1 relative group overflow-hidden">
+                                    <Image src="/imgs/manu/17.jpg" alt="Testing" fill className="object-cover group-hover:scale-110 transition-transform duration-700" />
+                                </div>
+                                <div className="col-span-1 row-span-1 relative group overflow-hidden">
+                                    <Image src="/imgs/manu/18.jpg" alt="Quality Control" fill className="object-cover group-hover:scale-110 transition-transform duration-700" />
+                                </div>
+                                <div className="col-span-1 row-span-1 relative group overflow-hidden">
+                                    <Image src="/imgs/manu/19.jpg" alt="Fabrication" fill className="object-cover group-hover:scale-110 transition-transform duration-700" />
+                                </div>
 
-                                <div className="absolute bottom-0 left-0 p-8 w-full">
-                                    <div className="text-primary font-bold tracking-widest uppercase text-sm mb-2">State-of-the-Art</div>
-                                    <div className="text-white text-2xl font-bold">Manufacturing Unit</div>
+                                <div className="absolute bottom-4 left-4 z-20 bg-black/50 backdrop-blur-md px-4 py-2 rounded-xl border border-white/10">
+                                    <div className="text-primary font-bold tracking-widest uppercase text-xs mb-1">State-of-the-Art</div>
+                                    <div className="text-white text-lg font-bold">Manufacturing Unit</div>
                                 </div>
                             </div>
                         </div>
@@ -207,19 +214,25 @@ export default function RenewablePage() {
                         <p className="text-gray-400 max-w-2xl mx-auto">Complete Electrical & Instrumentation services for Utility Scale & Hybrid projects.</p>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                         {[
-                            { title: "Switchyards", desc: "Design and erection up to 220kV.", color: "bg-blue-500" },
-                            { title: "Transmission Lines", desc: "ROW, tower erection, and conductor stringing.", color: "bg-teal-500" },
-                            { title: "Liasioning", desc: "End-to-end CEIG approvals and DISCOM coordination.", color: "bg-amber-500" },
-                            { title: "Testing", desc: "Pre-commissioning testing and grid synchronization.", color: "bg-green-500" }
+                            { title: "Switchyards", desc: "Design & erection up to 220kV.", img: "/imgs/turnkey/7.jpg" },
+                            { title: "Transmission", desc: "ROW, towers & stringing.", img: "/imgs/turnkey/8.jpg" },
+                            { title: "Liasioning", desc: "CEIG & DISCOM approvals.", img: "/imgs/turnkey/9.jpg" },
+                            { title: "Testing", desc: "Pre-commissioning & Sync.", img: "/imgs/turnkey/10.jpg" }
                         ].map((item, i) => (
-                            <div key={i} className="group reveal hover:-translate-y-1 transition-transform duration-300">
-                                <div className="h-1 bg-white/10 w-full mb-6 relative overflow-hidden">
-                                    <div className={`absolute top-0 left-0 h-full w-0 ${item.color} group-hover:w-full transition-all duration-700 ease-out`}></div>
+                            <div key={i} className="group relative h-[400px] rounded-3xl overflow-hidden reveal">
+                                <Image
+                                    src={item.img}
+                                    alt={item.title}
+                                    fill
+                                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-90 group-hover:opacity-80 transition-opacity"></div>
+                                <div className="absolute inset-x-0 bottom-0 p-8 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                                    <h3 className="text-2xl font-bold mb-3 text-white border-l-4 border-primary pl-4">{item.title}</h3>
+                                    <p className="text-gray-300 text-sm leading-relaxed pl-5 border-l-4 border-transparent opacity-0 group-hover:opacity-100 transition-opacity delay-100 duration-300">{item.desc}</p>
                                 </div>
-                                <h3 className="text-2xl font-bold mb-2 text-white">{item.title}</h3>
-                                <p className="text-gray-400 text-sm leading-relaxed">{item.desc}</p>
                             </div>
                         ))}
                     </div>
@@ -246,6 +259,13 @@ export default function RenewablePage() {
                             </div>
                         ))}
                     </div>
+                </div>
+            </section>
+
+            {/* --- INTERACTIVE CALCULATOR SECTION --- */}
+            <section className="py-24 px-6 bg-slate-950">
+                <div className="max-w-7xl mx-auto">
+                    <DowntimeCalculator />
                 </div>
             </section>
 
