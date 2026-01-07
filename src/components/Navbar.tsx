@@ -64,21 +64,21 @@ export default function Navbar() {
                     isHidden ? "-translate-y-full" : "translate-y-0"
                 )}
             >
-                <div className="max-w-[1800px] mx-auto px-6 md:px-12 flex items-center justify-between h-24">
+                <div className="max-w-[1800px] mx-auto px-6 md:px-12 flex items-center justify-between h-24 relative">
                     {/* Logo */}
-                    <Link href="/">
+                    <Link href="/" className="z-20">
                         <Image
                             src="https://sp-ao.shortpixel.ai/client/to_auto,q_lossy,ret_img,w_170/https://adaptive-engg.com/wp-content/uploads/2025/04/logo-1-png.avif"
                             alt="Adaptive Engineering"
                             width={170}
                             height={48}
-                            className="h-12 w-auto object-contain"
+                            className="h-12 w-auto object-contain hover:opacity-80 transition-opacity duration-300"
                             priority
                         />
                     </Link>
 
-                    {/* Desktop Navigation */}
-                    <div className="hidden lg:flex items-center gap-8">
+                    {/* Desktop Navigation - Centered */}
+                    <div className="hidden lg:flex items-center gap-8 absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
                         <NavLink href="/" isScrolled={isScrolled}>Home</NavLink>
 
                         <div className="relative group flex items-center h-full" onMouseEnter={() => setActiveDropdown('about')} onMouseLeave={() => setActiveDropdown(null)}>
@@ -150,13 +150,23 @@ export default function Navbar() {
                         </div>
                     </div>
 
-                    {/* Mobile Menu Toggle */}
-                    <button
-                        className="lg:hidden text-slate-800"
-                        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                    >
-                        {isMobileMenuOpen ? <X className="w-8 h-8" /> : <Menu className="w-8 h-8" />}
-                    </button>
+                    {/* Right Side: CTA & Mobile Toggle */}
+                    <div className="flex items-center gap-6 z-20">
+                        <Link
+                            href="/contact"
+                            className="hidden md:inline-flex items-center px-6 py-2 bg-primary text-white font-bold rounded-full hover:bg-teal-700 transition-all duration-300 shadow-lg hover:shadow-primary/30 text-sm uppercase tracking-wider"
+                        >
+                            Let&apos;s Connect
+                        </Link>
+
+                        {/* Mobile Menu Toggle */}
+                        <button
+                            className="lg:hidden text-slate-800"
+                            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                        >
+                            {isMobileMenuOpen ? <X className="w-8 h-8" /> : <Menu className="w-8 h-8" />}
+                        </button>
+                    </div>
                 </div>
             </nav>
 
@@ -168,7 +178,7 @@ export default function Navbar() {
                         animate={{ opacity: 1, x: 0 }}
                         exit={{ opacity: 0, x: "100%" }}
                         transition={{ type: "tween", duration: 0.3 }}
-                        className="fixed inset-0 z-[60] bg-white flex flex-col justify-center px-8 space-y-8 shadow-2xl lg:hidden"
+                        className="fixed inset-0 z-[60] bg-slate-900 h-screen flex flex-col justify-center px-8 space-y-8 shadow-2xl lg:hidden"
                     >
                         <button
                             onClick={() => setIsMobileMenuOpen(false)}
@@ -177,10 +187,10 @@ export default function Navbar() {
                             <X className="w-8 h-8" />
                         </button>
 
-                        <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="text-4xl font-heading font-bold text-slate-900">Home</Link>
-                        <Link href="/about" onClick={() => setIsMobileMenuOpen(false)} className="text-4xl font-heading font-bold text-slate-900">About</Link>
-                        <Link href="/renewable" onClick={() => setIsMobileMenuOpen(false)} className="text-4xl font-heading font-bold text-slate-900">Solutions</Link>
-                        <Link href="/pm-kusum" onClick={() => setIsMobileMenuOpen(false)} className="text-4xl font-heading font-bold text-slate-900">PM-KUSUM</Link>
+                        <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="text-4xl font-heading font-bold text-white">Home</Link>
+                        <Link href="/about" onClick={() => setIsMobileMenuOpen(false)} className="text-4xl font-heading font-bold text-white">About</Link>
+                        <Link href="/renewable" onClick={() => setIsMobileMenuOpen(false)} className="text-4xl font-heading font-bold text-white">Solutions</Link>
+                        <Link href="/pm-kusum" onClick={() => setIsMobileMenuOpen(false)} className="text-4xl font-heading font-bold text-white">PM-KUSUM</Link>
                         <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)} className="text-4xl font-heading font-bold text-primary">Contact</Link>
                     </motion.div>
                 )}
