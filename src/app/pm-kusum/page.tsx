@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import Link from "next/link";
 import { ArrowRight, Sun } from "lucide-react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSatelliteDish, faFileInvoice, faNetworkWired, faTasks, faBolt, faShieldAlt } from "@fortawesome/free-solid-svg-icons";
+import { faSatelliteDish, faFileInvoice, faNetworkWired, faTasks, faBolt, faShieldAlt, faCloudSun, faBroadcastTower, faUniversity, faMap, faBuilding, faCheckCircle } from "@fortawesome/free-solid-svg-icons";
 import MicroCTA from "@/components/ui/MicroCTA";
 // Navbar and Footer are globally in layout
 
@@ -50,7 +50,7 @@ export default function PmKusumPage() {
                     </h1>
 
                     <p className="text-gray-300 text-xl md:text-2xl font-light reveal delay-100 max-w-3xl mx-auto leading-relaxed">
-                        End-to-end Remote Monitoring (RMS) & Automation for Components A, B & C.
+                        End-to-end Remote Monitoring (RMS) & Automation for Components A, B & C
                     </p>
                 </div>
             </section>
@@ -100,82 +100,57 @@ export default function PmKusumPage() {
                         <p className="text-gray-400 max-w-2xl mx-auto">Unified solution from IoT Sensors to State-Level Dashboards.</p>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                         {[
                             {
-                                title: "IoT SCADA",
-                                bullets: [
-                                    "IoT-based Edge Computing Device (SolarWiz).",
-                                    "Store & Forward capability during cloud outages.",
-                                    "Supports OPC-UA, Modbus TCP/IP, and RS485.",
-                                    "Seamless integration with 3rd party sensors."
-                                ],
+                                title: "IoT SCADA (RMS)",
+                                desc: "Edge computing device with Store & Forward capability.",
                                 icon: faSatelliteDish
                             },
                             {
                                 title: "ReportWiz",
-                                bullets: [
-                                    "Automated JMR (Joint Meter Reading) generation.",
-                                    "KPI & Performance insight dashboards.",
-                                    "Custom report builder for subsidy compliance.",
-                                    "Advanced analytical charts for generation curves."
-                                ],
+                                desc: "Automated JMR generation and subsidy compliance reports.",
                                 icon: faFileInvoice
                             },
                             {
                                 title: "Central Monitoring System (CMS)",
-                                bullets: [
-                                    "Unified view of entire district/state portfolio.",
-                                    "Multi-plant configuration and O&M tracking.",
-                                    "Real-time anomaly detection alerts.",
-                                    "Hierarchical access for DISCOMs and Developers."
-                                ],
+                                desc: "Unified portfolio view for State Agencies & Developers.",
                                 icon: faNetworkWired
                             },
                             {
                                 title: "Asset Management System (AMS)",
-                                bullets: [
-                                    "Automated Workorder Management & Ticketing.",
-                                    "Track inventory and spare part consumption.",
-                                    "Standardized SOPs with \"How-To\" manuals.",
-                                    "Reduce MTTR (Mean Time To Repair) with mobile app integration."
-                                ],
+                                desc: "Workorder ticketing and inventory tracking.",
                                 icon: faTasks
                             },
                             {
                                 title: "HT Panel",
-                                bullets: [
-                                    "VCB Panels up to 33kV / 11kV.",
-                                    "Suitable for both Indoor & Outdoor substations.",
-                                    "Strict adherence to DISCOM/Utility standards.",
-                                    "Integrated with SF6 Circuit Breakers and RMUs."
-                                ],
+                                desc: "11kV/33kV Vacuum Circuit Breakers (VCB) for substations.",
                                 icon: faBolt
                             },
                             {
                                 title: "ACDB Panels",
-                                bullets: [
-                                    "IP52 (Indoor) to IP65 (Outdoor) protection ratings.",
-                                    "Equipped with SPD (Surge Protection) and MCCB.",
-                                    "Customizable for wall or floor mounting.",
-                                    "Safeguards pumps against high voltage fluctuations."
-                                ],
+                                desc: "IP65 protection for 800V & 415V pump connections.",
                                 icon: faShieldAlt
+                            },
+                            {
+                                title: "Weather Monitoring System (WMS)",
+                                desc: "Industrial grade sensors for Irradiation, Module Temp, and Wind Speed to calculate accurate PR.",
+                                icon: faCloudSun
+                            },
+                            {
+                                title: "Telemetry System",
+                                desc: "Real-time data transmission to SLDC/RLDC via RTU, ensuring grid visibility and compliance.",
+                                icon: faBroadcastTower
                             }
                         ].map((item, i) => (
                             <div key={i} className="dark-card p-8 bg-white/5 border border-white/10 rounded-2xl hover:bg-white/10 hover:border-primary/50 hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 group reveal cursor-pointer delay-[100ms]">
                                 <div className="mb-6 w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
                                     <FontAwesomeIcon icon={item.icon} className="w-6 h-6" />
                                 </div>
-                                <h3 className="text-xl font-bold mb-4 text-white">{item.title}</h3>
-                                <ul className="space-y-3">
-                                    {item.bullets.map((bullet, j) => (
-                                        <li key={j} className="flex items-start gap-2 text-sm text-gray-400 group-hover:text-gray-300 transition-colors">
-                                            <span className="mt-1.5 w-1 h-1 bg-primary rounded-full shrink-0"></span>
-                                            <span className="leading-relaxed">{bullet}</span>
-                                        </li>
-                                    ))}
-                                </ul>
+                                <h3 className="text-lg font-bold mb-3 text-white leading-tight">{item.title}</h3>
+                                <p className="text-sm text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors">
+                                    {item.desc}
+                                </p>
                             </div>
                         ))}
                     </div>
@@ -186,17 +161,66 @@ export default function PmKusumPage() {
             </section>
 
             {/* 5. COMPLIANCE & INTEGRATION (Dark) */}
-            <section className="section-dark py-24 bg-slate-900 text-white relative z-10 -mt-10 pt-32 text-center">
-                <div className="max-w-4xl mx-auto px-6 reveal">
-                    <h2 className="text-3xl font-bold mb-6 font-heading">Seamless Compliance</h2>
-                    <p className="text-gray-400 text-lg mb-10">Our RMS stack is pre-integrated with major state portals.</p>
+            <section className="section-dark py-24 bg-slate-900 text-white relative z-10 -mt-10 pt-32">
+                <div className="max-w-6xl mx-auto px-6 reveal">
+                    <div className="text-center mb-16">
+                        <h2 className="text-3xl font-bold mb-6 font-heading">Seamless Compliance</h2>
+                        <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+                            Our RMS stack is pre-integrated with major state and national portals, ensuring 100% subsidy compliance.
+                        </p>
+                    </div>
 
-                    <div className="flex flex-wrap justify-center gap-4">
-                        {["MNRE Portal", "KUSUM State Portals", "DISCOM ERP"].map((tag, i) => (
-                            <div key={i} className="px-6 py-3 bg-white/10 rounded-full border border-white/10 text-sm font-bold tracking-wide hover:bg-primary hover:border-primary transition-colors cursor-default">
-                                {tag}
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        {/* 1. MNRE */}
+                        <div className="relative group p-8 rounded-2xl bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/10 hover:border-orange-500/50 transition-all duration-300 hover:-translate-y-1">
+                            <div className="absolute top-4 right-4 flex items-center gap-2 px-3 py-1 rounded-full bg-green-500/20 border border-green-500/30">
+                                <span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></span>
+                                <span className="text-[10px] font-bold text-green-400 tracking-wider">LIVE</span>
                             </div>
-                        ))}
+                            <div className="w-14 h-14 rounded-xl bg-orange-500/20 flex items-center justify-center text-orange-400 mb-6 group-hover:scale-110 transition-transform duration-300">
+                                <FontAwesomeIcon icon={faUniversity} className="w-7 h-7" />
+                            </div>
+                            <h3 className="text-xl font-bold text-white mb-2">National Portal</h3>
+                            <p className="text-sm text-gray-400 mb-4">Direct data push to MNRE server for central subsidy claiming.</p>
+                            <div className="flex items-center gap-2 text-xs text-orange-300 font-medium">
+                                <FontAwesomeIcon icon={faCheckCircle} />
+                                <span>API Ready</span>
+                            </div>
+                        </div>
+
+                        {/* 2. State Portals */}
+                        <div className="relative group p-8 rounded-2xl bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/10 hover:border-blue-500/50 transition-all duration-300 hover:-translate-y-1">
+                            <div className="absolute top-4 right-4 flex items-center gap-2 px-3 py-1 rounded-full bg-green-500/20 border border-green-500/30">
+                                <span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></span>
+                                <span className="text-[10px] font-bold text-green-400 tracking-wider">LIVE</span>
+                            </div>
+                            <div className="w-14 h-14 rounded-xl bg-blue-500/20 flex items-center justify-center text-blue-400 mb-6 group-hover:scale-110 transition-transform duration-300">
+                                <FontAwesomeIcon icon={faMap} className="w-7 h-7" />
+                            </div>
+                            <h3 className="text-xl font-bold text-white mb-2">State Portals</h3>
+                            <p className="text-sm text-gray-400 mb-4">Integrated with portals of Rajasthan, Maharashtra, Haryana & more.</p>
+                            <div className="flex items-center gap-2 text-xs text-blue-300 font-medium">
+                                <FontAwesomeIcon icon={faCheckCircle} />
+                                <span>Multi-State Support</span>
+                            </div>
+                        </div>
+
+                        {/* 3. DISCOM ERP */}
+                        <div className="relative group p-8 rounded-2xl bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/10 hover:border-purple-500/50 transition-all duration-300 hover:-translate-y-1">
+                            <div className="absolute top-4 right-4 flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/20 border border-blue-500/30">
+                                <span className="w-1.5 h-1.5 bg-blue-400 rounded-full"></span>
+                                <span className="text-[10px] font-bold text-blue-300 tracking-wider">SECURE</span>
+                            </div>
+                            <div className="w-14 h-14 rounded-xl bg-purple-500/20 flex items-center justify-center text-purple-400 mb-6 group-hover:scale-110 transition-transform duration-300">
+                                <FontAwesomeIcon icon={faBuilding} className="w-7 h-7" />
+                            </div>
+                            <h3 className="text-xl font-bold text-white mb-2">Utility ERP</h3>
+                            <p className="text-sm text-gray-400 mb-4">Seamless billing data integration with DISCOM internal software.</p>
+                            <div className="flex items-center gap-2 text-xs text-purple-300 font-medium">
+                                <FontAwesomeIcon icon={faCheckCircle} />
+                                <span>Encrypted Tunnel</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -207,7 +231,7 @@ export default function PmKusumPage() {
                     <h2 className="text-3xl font-bold text-slate-900 mb-6 font-heading">Partner for PM-KUSUM?</h2>
                     <p className="text-slate-500 mb-8 text-lg">We support EPCs and Developers with end-to-end RMS & Hardware.</p>
                     <Link href="/contact" className="inline-flex items-center gap-2 px-10 py-4 bg-slate-900 text-white rounded-full font-bold hover:bg-primary transition-colors">
-                        Get RMS Quote <ArrowRight className="w-4 h-4" />
+                        Get Quote <ArrowRight className="w-4 h-4" />
                     </Link>
                 </div>
             </section>

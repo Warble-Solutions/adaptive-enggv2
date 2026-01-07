@@ -50,7 +50,7 @@ export default function ContactPage() {
                         Establish <span className="text-primary">Connection</span>
                     </h1>
                     <p className="text-gray-300 text-xl md:text-2xl font-light reveal delay-100 max-w-2xl mx-auto leading-relaxed">
-                        Get in touch with our engineering team for Consultations, Quotes, or Support.
+                        Get in touch with our engineering team for Consultations, Quotes, or Support
                     </p>
                 </div>
             </section>

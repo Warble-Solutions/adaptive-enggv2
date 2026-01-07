@@ -54,11 +54,11 @@ export default function PPCPage() {
                     </div>
 
                     <h1 className="text-5xl md:text-7xl font-black text-white mb-6 font-heading reveal">
-                        Adaptive Power <span className="text-primary">Plant Control</span>
+                        AEPL Power <span className="text-primary">Plant Control</span>
                     </h1>
 
                     <p className="text-gray-300 text-xl md:text-2xl font-light reveal delay-100 max-w-3xl mx-auto leading-relaxed">
-                        Orchestrating Solar, Wind, and BESS assets for India's 500GW+ Future.
+                        Orchestrating Solar, Wind, and BESS assets for India's 500GW+ Future
                     </p>
                 </div>
             </section>

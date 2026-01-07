@@ -52,7 +52,7 @@ export default function AboutPage() {
                         Engineering <span className="text-primary">Legacy</span>
                     </h1>
                     <p className="text-gray-300 text-xl md:text-2xl font-light reveal delay-100">
-                        Three Decades of Excellence in Renewable Energy & Automation.
+                        Three Decades of Excellence in Renewable Energy & Automation
                     </p>
                 </div>
             </section>
