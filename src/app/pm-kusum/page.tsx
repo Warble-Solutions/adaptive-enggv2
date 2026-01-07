@@ -154,8 +154,9 @@ export default function PmKusumPage() {
                             </div>
                         ))}
                     </div>
-                    <div className="mt-12 flex justify-center">
+                    <div className="mt-12 flex justify-center gap-6">
                         <MicroCTA text="Download Brochure" variant="download" href="#" />
+                        <MicroCTA text="Get Quote" variant="quote" href="/contact" />
                     </div>
                 </div>
             </section>
