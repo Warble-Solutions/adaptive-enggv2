@@ -74,7 +74,7 @@ export default function Footer() {
             <div className="max-w-7xl mx-auto px-6 border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
                 <p className="text-gray-500 text-sm">© {new Date().getFullYear()} ADAPTIVE ENGINEERING PVT. LTD. All Rights Reserved.</p>
                 <div className="flex items-center gap-4 opacity-70 hover:opacity-100 transition-opacity cursor-default">
-                    <span className="text-sm text-gray-500">Tech Partner</span>
+                    <span className="text-sm text-gray-500">Powered by</span>
                     <div className="flex items-center gap-2">
                         <Image
                             src="https://adaptive-engg.com/wp-content/uploads/2023/04/Hone-ST-Circular-Logo.png"
