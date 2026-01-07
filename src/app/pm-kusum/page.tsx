@@ -2,7 +2,9 @@
 
 import { useEffect } from "react";
 import Link from "next/link";
-import { ArrowRight, ChevronRight, Zap, Cloud, Database, FileText, Settings, ShieldCheck, Sun } from "lucide-react";
+import { ArrowRight, Sun } from "lucide-react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSatelliteDish, faFileInvoice, faNetworkWired, faTasks, faBolt, faShieldAlt } from "@fortawesome/free-solid-svg-icons";
 import MicroCTA from "@/components/ui/MicroCTA";
 // Navbar and Footer are globally in layout
 
@@ -90,75 +92,95 @@ export default function PmKusumPage() {
                 </div>
             </section>
 
-            {/* 3. DIGITAL SOLUTION: RMS & IOT (Dark) */}
+            {/* 3. END-TO-END KUSUM STACK (Combined) */}
             <section className="section-dark py-32 bg-transparent text-white relative z-10">
                 <div className="max-w-7xl mx-auto px-6">
                     <div className="text-center mb-16 reveal">
-                        <h2 className="text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-green-400 font-heading mb-4">Intelligent RMS Stack</h2>
-                        <p className="text-gray-400 max-w-2xl mx-auto">Seamless connectivity from Farm to State Cloud.</p>
+                        <h2 className="text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-green-400 font-heading mb-4">End-to-End KUSUM Stack</h2>
+                        <p className="text-gray-400 max-w-2xl mx-auto">Unified solution from IoT Sensors to State-Level Dashboards.</p>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        {/* SolarWiz */}
-                        <div className="dark-card p-8 bg-white/5 border border-white/10 rounded-2xl hover:bg-white/10 hover:border-primary/50 hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 group reveal cursor-pointer">
-                            <div className="mb-6 w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
-                                <Zap />
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        {[
+                            {
+                                title: "IoT SCADA",
+                                bullets: [
+                                    "IoT-based Edge Computing Device (SolarWiz).",
+                                    "Store & Forward capability during cloud outages.",
+                                    "Supports OPC-UA, Modbus TCP/IP, and RS485.",
+                                    "Seamless integration with 3rd party sensors."
+                                ],
+                                icon: faSatelliteDish
+                            },
+                            {
+                                title: "ReportWiz",
+                                bullets: [
+                                    "Automated JMR (Joint Meter Reading) generation.",
+                                    "KPI & Performance insight dashboards.",
+                                    "Custom report builder for subsidy compliance.",
+                                    "Advanced analytical charts for generation curves."
+                                ],
+                                icon: faFileInvoice
+                            },
+                            {
+                                title: "Central Monitoring System (CMS)",
+                                bullets: [
+                                    "Unified view of entire district/state portfolio.",
+                                    "Multi-plant configuration and O&M tracking.",
+                                    "Real-time anomaly detection alerts.",
+                                    "Hierarchical access for DISCOMs and Developers."
+                                ],
+                                icon: faNetworkWired
+                            },
+                            {
+                                title: "Asset Management System (AMS)",
+                                bullets: [
+                                    "Automated Workorder Management & Ticketing.",
+                                    "Track inventory and spare part consumption.",
+                                    "Standardized SOPs with \"How-To\" manuals.",
+                                    "Reduce MTTR (Mean Time To Repair) with mobile app integration."
+                                ],
+                                icon: faTasks
+                            },
+                            {
+                                title: "HT Panel",
+                                bullets: [
+                                    "VCB Panels up to 33kV / 11kV.",
+                                    "Suitable for both Indoor & Outdoor substations.",
+                                    "Strict adherence to DISCOM/Utility standards.",
+                                    "Integrated with SF6 Circuit Breakers and RMUs."
+                                ],
+                                icon: faBolt
+                            },
+                            {
+                                title: "ACDB Panels",
+                                bullets: [
+                                    "IP52 (Indoor) to IP65 (Outdoor) protection ratings.",
+                                    "Equipped with SPD (Surge Protection) and MCCB.",
+                                    "Customizable for wall or floor mounting.",
+                                    "Safeguards pumps against high voltage fluctuations."
+                                ],
+                                icon: faShieldAlt
+                            }
+                        ].map((item, i) => (
+                            <div key={i} className="dark-card p-8 bg-white/5 border border-white/10 rounded-2xl hover:bg-white/10 hover:border-primary/50 hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 group reveal cursor-pointer delay-[100ms]">
+                                <div className="mb-6 w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+                                    <FontAwesomeIcon icon={item.icon} className="w-6 h-6" />
+                                </div>
+                                <h3 className="text-xl font-bold mb-4 text-white">{item.title}</h3>
+                                <ul className="space-y-3">
+                                    {item.bullets.map((bullet, j) => (
+                                        <li key={j} className="flex items-start gap-2 text-sm text-gray-400 group-hover:text-gray-300 transition-colors">
+                                            <span className="mt-1.5 w-1 h-1 bg-primary rounded-full shrink-0"></span>
+                                            <span className="leading-relaxed">{bullet}</span>
+                                        </li>
+                                    ))}
+                                </ul>
                             </div>
-                            <h3 className="text-xl font-bold mb-2 text-white">SolarWiz (IoT Gateway)</h3>
-                            <p className="text-gray-400 text-sm leading-relaxed">Edge computing device. Stores data during internet outages. Modbus/DLMS compatible.</p>
-                        </div>
-
-                        {/* CMS */}
-                        <div className="dark-card p-8 bg-white/5 border border-white/10 rounded-2xl hover:bg-white/10 hover:border-primary/50 hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 group reveal cursor-pointer delay-100">
-                            <div className="mb-6 w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center text-blue-400 group-hover:scale-110 transition-transform">
-                                <Cloud />
-                            </div>
-                            <h3 className="text-xl font-bold mb-2 text-white">Central Monitoring System</h3>
-                            <p className="text-gray-400 text-sm leading-relaxed">District-level dashboard for DISCOMs and State Nodal Agencies.</p>
-                        </div>
-
-                        {/* ReportWiz */}
-                        <div className="dark-card p-8 bg-white/5 border border-white/10 rounded-2xl hover:bg-white/10 hover:border-primary/50 hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 group reveal cursor-pointer delay-200">
-                            <div className="mb-6 w-12 h-12 bg-amber-500/20 rounded-lg flex items-center justify-center text-amber-400 group-hover:scale-110 transition-transform">
-                                <FileText />
-                            </div>
-                            <h3 className="text-xl font-bold mb-2 text-white">ReportWiz</h3>
-                            <p className="text-gray-400 text-sm leading-relaxed">Automated generation of JMR (Joint Meter Reading) and subsidy compliance reports.</p>
-                        </div>
+                        ))}
                     </div>
                     <div className="mt-12 flex justify-center">
-                        <MicroCTA text="Download SolarWiz Datasheet" variant="download" href="#" />
-                    </div>
-                </div>
-            </section>
-
-            {/* 4. PHYSICAL INFRASTRUCTURE (Light) */}
-            <section className="section-light py-24 bg-white rounded-t-[40px] relative z-20">
-                <div className="max-w-7xl mx-auto px-6">
-                    <div className="text-center mb-16 reveal">
-                        <h2 className="text-3xl font-bold text-slate-900 mb-2 font-heading">Field-Ready Hardware</h2>
-                        <p className="text-slate-500">Ruggedized for rural environments.</p>
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        <HardwareCard
-                            title="USPC"
-                            desc="Universal Pump Controller. Auto-switch between Grid and Solar power."
-                            icon={<Settings className="w-8 h-8 text-slate-700" />}
-                        />
-                        <HardwareCard
-                            title="ACDB / DCDB Panels"
-                            desc="IP65 rated protection boxes for harsh weather."
-                            icon={<ShieldCheck className="w-8 h-8 text-slate-700" />}
-                        />
-                        <HardwareCard
-                            title="Net Metering Interface"
-                            desc="Seamless integration with bidirectional meters."
-                            icon={<Database className="w-8 h-8 text-slate-700" />}
-                        />
-                    </div>
-                    <div className="mt-12 flex justify-center">
-                        <MicroCTA text="Get RMS Pricing" variant="connect" href="/contact" />
+                        <MicroCTA text="Download Brochure" variant="download" href="#" />
                     </div>
                 </div>
             </section>
@@ -193,15 +215,3 @@ export default function PmKusumPage() {
     );
 }
 
-// Helper Card
-function HardwareCard({ title, desc, icon }: { title: string; desc: string; icon: React.ReactNode }) {
-    return (
-        <div className="premium-card p-8 bg-gray-50 rounded-2xl border border-gray-100 hover:shadow-xl transition-all duration-300 reveal group hover:-translate-y-2">
-            <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mb-6 shadow-sm group-hover:scale-110 transition-transform">
-                {icon}
-            </div>
-            <h3 className="text-xl font-bold text-slate-900 mb-3">{title}</h3>
-            <p className="text-slate-500 text-sm leading-relaxed">{desc}</p>
-        </div>
-    )
-}
