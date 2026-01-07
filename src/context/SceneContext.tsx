@@ -2,7 +2,7 @@
 
 import { createContext, useContext, useState, ReactNode } from "react";
 
-export type SceneVariant = 'network' | 'waves' | 'grid';
+export type SceneVariant = 'network' | 'solar' | 'wind' | 'battery' | 'wave';
 
 type SceneState = {
     primaryColor: string;
