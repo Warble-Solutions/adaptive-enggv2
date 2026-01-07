@@ -70,15 +70,15 @@ export default function Navbar() {
                         <Image
                             src="https://sp-ao.shortpixel.ai/client/to_auto,q_lossy,ret_img,w_170/https://adaptive-engg.com/wp-content/uploads/2025/04/logo-1-png.avif"
                             alt="Adaptive Engineering"
-                            width={170}
-                            height={48}
-                            className="h-12 w-auto object-contain hover:opacity-80 transition-opacity duration-300"
+                            width={220}
+                            height={62}
+                            className="h-16 w-auto object-contain hover:opacity-80 transition-opacity duration-300"
                             priority
                         />
                     </Link>
 
-                    {/* Desktop Navigation - Centered */}
-                    <div className="hidden lg:flex items-center gap-8 absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                    {/* Desktop Navigation - Right Aligned */}
+                    <div className="hidden lg:flex items-center gap-8 ml-auto mr-8">
                         <NavLink href="/" isScrolled={isScrolled}>Home</NavLink>
 
                         <div className="relative group flex items-center h-full" onMouseEnter={() => setActiveDropdown('about')} onMouseLeave={() => setActiveDropdown(null)}>
@@ -156,12 +156,7 @@ export default function Navbar() {
 
                     {/* Right Side: CTA & Mobile Toggle */}
                     <div className="flex items-center gap-6 z-20">
-                        <Link
-                            href="/contact"
-                            className="hidden md:inline-flex items-center px-8 py-3 bg-primary text-white font-bold rounded-full hover:bg-white hover:text-primary transition-all duration-300 shadow-lg hover:shadow-xl text-sm uppercase tracking-wider"
-                        >
-                            Let&apos;s Connect
-                        </Link>
+
 
                         {/* Mobile Menu Toggle */}
                         <button
