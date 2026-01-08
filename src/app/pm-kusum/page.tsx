@@ -16,18 +16,30 @@ export default function PmKusumPage() {
     return (
         <div className="flex flex-col w-full">
             {/* 1. HERO SECTION (Dark) */}
-            <section className="section-hero relative min-h-screen flex flex-col items-center justify-center text-center px-6 py-32">
-                <div className="z-10 max-w-5xl">
+            {/* 1. HERO SECTION (Dark) */}
+            <section className="section-hero relative min-h-screen flex flex-col items-center justify-center text-center px-6 py-32 overflow-hidden">
+                {/* Background Image */}
+                <div className="absolute inset-0 z-0">
+                    <img
+                        src="/imgs/indfarm.jpg"
+                        alt="PM KUSUM Background"
+                        className="w-full h-full object-cover"
+                    />
+                    {/* Darker Gradient Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/50 to-black/90 z-10"></div>
+                </div>
+
+                <div className="z-10 max-w-5xl relative">
                     <SectionWrapper>
-                        <div className="inline-block px-4 py-1 bg-green-500/20 text-green-400 rounded-full text-xs font-bold uppercase tracking-widest mb-6 border border-green-500/30">
+                        <div className="inline-block px-4 py-2 bg-green-500/20 backdrop-blur-sm text-green-400 rounded-full text-xs font-bold uppercase tracking-widest mb-6 border border-green-500/30 shadow-lg">
                             MNRE Compliant
                         </div>
 
-                        <h1 className="text-5xl md:text-7xl font-black text-white mb-6 font-heading">
-                            PM-KUSUM <span className="text-primary">Solutions</span>
+                        <h1 className="text-5xl md:text-7xl font-black text-white mb-6 font-heading drop-shadow-[0_5px_5px_rgba(0,0,0,0.8)]">
+                            PM-KUSUM <span className="text-primary drop-shadow-[0_5px_5px_rgba(0,0,0,0.8)]">Solutions</span>
                         </h1>
 
-                        <p className="text-gray-300 text-xl md:text-2xl font-light max-w-3xl mx-auto leading-relaxed">
+                        <p className="text-gray-100 text-xl md:text-2xl font-medium max-w-3xl mx-auto leading-relaxed drop-shadow-lg bg-black/40 backdrop-blur-sm rounded-2xl py-6 px-8 border border-white/10 shadow-2xl">
                             End-to-end Remote Monitoring (RMS) & Automation solutions comprehensively designed for PM-KUSUM Components A, B & C, ensuring seamless integration and real-time data visibility
                         </p>
                     </SectionWrapper>

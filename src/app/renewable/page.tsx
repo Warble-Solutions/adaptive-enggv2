@@ -14,20 +14,31 @@ export default function RenewablePage() {
     return (
         <div className="flex flex-col w-full">
             {/* 1. HERO SECTION (Dark) */}
-            <section className="section-hero relative min-h-[50vh] flex flex-col items-center justify-center text-center px-6 pt-32 pb-12">
-                <div className="z-10 max-w-5xl">
+            <section className="section-hero relative min-h-[50vh] flex flex-col items-center justify-center text-center px-6 pt-32 pb-12 overflow-hidden">
+                {/* Background Image */}
+                <div className="absolute inset-0 z-0">
+                    <img
+                        src="/imgs/renew.jpg"
+                        alt="Renewable Solutions Background"
+                        className="w-full h-full object-cover"
+                    />
+                    {/* Darker Gradient Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/50 to-black/90 z-10"></div>
+                </div>
+
+                <div className="z-10 max-w-5xl relative">
                     <SectionWrapper>
-                        <div className="flex items-center justify-center gap-2 text-primary text-sm font-bold uppercase tracking-widest mb-6">
+                        <div className="flex items-center justify-center gap-2 text-primary text-sm font-bold uppercase tracking-widest mb-6 bg-black/40 backdrop-blur-sm py-2 px-6 rounded-full inline-flex border border-white/10 shadow-lg">
                             <Link href="/" className="hover:text-white transition-colors">Home</Link>
                             <ChevronRight className="w-4 h-4" />
                             <span>Renewable Solutions</span>
                         </div>
 
-                        <h1 className="text-5xl md:text-7xl font-black text-white mb-6 font-heading">
-                            Renewable <span className="text-primary">Solutions</span>
+                        <h1 className="text-5xl md:text-7xl font-black text-white mb-6 font-heading drop-shadow-[0_5px_5px_rgba(0,0,0,0.8)]">
+                            Renewable <span className="text-primary drop-shadow-[0_5px_5px_rgba(0,0,0,0.8)]">Solutions</span>
                         </h1>
 
-                        <p className="text-gray-300 text-xl md:text-2xl font-light max-w-3xl mx-auto leading-relaxed">
+                        <p className="text-gray-100 text-xl md:text-2xl font-medium max-w-3xl mx-auto leading-relaxed drop-shadow-lg bg-black/40 backdrop-blur-sm rounded-2xl py-6 px-8 border border-white/10 shadow-2xl">
                             The complete power value chain: From advanced Digital Intelligence and SCADA Automation to robust Heavy Electrical Infrastructure and Grid Integration
                         </p>
                     </SectionWrapper>

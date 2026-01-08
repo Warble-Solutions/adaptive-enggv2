@@ -19,13 +19,25 @@ export default function ContactPage() {
     return (
         <div className="flex flex-col w-full">
             {/* 1. HERO SECTION (Dark) */}
-            <section className="section-hero relative min-h-[60vh] flex flex-col items-center justify-center text-center px-6 pt-32">
-                <div className="z-10 max-w-4xl">
+            {/* 1. HERO SECTION (Dark) */}
+            <section className="section-hero relative min-h-[60vh] flex flex-col items-center justify-center text-center px-6 overflow-hidden">
+                {/* Background Image */}
+                <div className="absolute inset-0 z-0">
+                    <img
+                        src="/imgs/contact.jpg"
+                        alt="Contact Background"
+                        className="w-full h-full object-cover"
+                    />
+                    {/* Darker Gradient Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/50 to-black/90 z-10"></div>
+                </div>
+
+                <div className="z-10 max-w-4xl relative">
                     <SectionWrapper>
-                        <h1 className="text-5xl md:text-7xl font-black text-white mb-6 font-heading">
-                            Establish <span className="text-primary">Connection</span>
+                        <h1 className="text-5xl md:text-7xl font-black text-white mb-6 font-heading drop-shadow-[0_5px_5px_rgba(0,0,0,0.8)]">
+                            Establish <span className="text-primary drop-shadow-[0_5px_5px_rgba(0,0,0,0.8)]">Connection</span>
                         </h1>
-                        <p className="text-gray-300 text-xl md:text-2xl font-light max-w-2xl mx-auto leading-relaxed">
+                        <p className="text-gray-100 text-xl md:text-2xl font-medium max-w-2xl mx-auto leading-relaxed drop-shadow-lg bg-black/40 backdrop-blur-sm rounded-2xl py-6 px-8 border border-white/10 shadow-2xl">
                             Get in touch with our engineering team for Consultations, Quotes, or Support
                         </p>
                     </SectionWrapper>
