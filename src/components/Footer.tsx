@@ -56,10 +56,7 @@ export default function Footer() {
                 <div>
                     <h5 className="text-white font-bold mb-6 text-lg tracking-wide">Contact Us</h5>
                     <ul className="space-y-4 text-sm text-gray-400 font-medium">
-                        <li className="flex items-start gap-3">
-                            <MapPin className="text-primary w-5 h-5 mt-1 shrink-0" />
-                            <span>21st Floor, Yash Anant, Opp. Old RBI, Ashram Road, Ahmedabad - 380009, Gujarat, India</span>
-                        </li>
+
                         <li className="flex items-center gap-3">
                             <Phone className="text-primary w-5 h-5 shrink-0" />
                             <span>+91 79 6926 9000</span>

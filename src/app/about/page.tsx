@@ -190,7 +190,7 @@ export default function AboutPage() {
                                     </div>
 
                                     {/* Content Card */}
-                                    <div className="w-full md:w-1/2 pl-20 md:pl-0 md:px-16">
+                                    <div className={`w-full md:w-1/2 pl-20 ${i % 2 === 0 ? "md:pl-16 md:pr-0" : "md:pr-16 md:pl-0"}`}>
                                         <div className={`
                                             p-8 rounded-2xl border border-white/10 backdrop-blur-md transition-all duration-300 hover:border-primary/50 hover:shadow-2xl hover:-translate-y-1 group relative overflow-hidden
                                             ${i % 2 === 0 ? "bg-gradient-to-br from-white/5 to-white/0" : "bg-gradient-to-bl from-white/5 to-white/0"}

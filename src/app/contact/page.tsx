@@ -97,20 +97,7 @@ export default function ContactPage() {
                         <div className="lg:w-2/5 space-y-12">
                             <SectionWrapper delay={0.2}>
                                 <div>
-                                    <h2 className="text-4xl font-bold text-slate-900 mb-8 font-heading">Headquarters</h2>
                                     <div className="space-y-8">
-                                        <div className="flex items-start gap-4">
-                                            <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary shrink-0">
-                                                <MapPin className="w-6 h-6" />
-                                            </div>
-                                            <div>
-                                                <h4 className="font-bold text-slate-900 text-lg mb-1">Corporate Office</h4>
-                                                <p className="text-slate-500 leading-relaxed max-w-xs">
-                                                    21st Floor, Yash Anant, Opp. Old RBI, Ashram Road, Ahmedabad - 380009, Gujarat, India.
-                                                </p>
-                                            </div>
-                                        </div>
-
                                         <div className="flex items-start gap-4">
                                             <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary shrink-0">
                                                 <Phone className="w-6 h-6" />
@@ -134,7 +121,7 @@ export default function ContactPage() {
                                 </div>
 
                                 {/* Map Placeholder */}
-                                <div className="w-full h-56 md:h-72 min-h-[240px] bg-slate-100 rounded-2xl overflow-hidden border border-slate-200 relative">
+                                <div className="w-full h-96 md:h-[450px] min-h-[400px] bg-slate-100 rounded-2xl overflow-hidden border border-slate-200 relative mt-12">
                                     <iframe
                                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3671.936636737389!2d72.5732143154236!3d23.02606512197686!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e84f7f6a704f1%3A0xc6c7c5c8c5c5c5c5!2sReserve%20Bank%20of%20India%2C%20Ashram%20Rd%2C%20Ahmedabad!5e0!3m2!1sen!2sin!4v1675840000000!5m2!1sen!2sin"
                                         width="100%"
