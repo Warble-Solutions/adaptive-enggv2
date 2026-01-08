@@ -315,21 +315,53 @@ export default function AboutPage() {
             </section>
 
             {/* 5. ACCREDITATIONS (Alt Light) */}
-            <section className="py-20 bg-gray-50 border-t border-gray-200 relative z-20">
-                <div className="max-w-7xl mx-auto px-6 text-center">
+            <section className="py-24 bg-slate-50 border-t border-slate-200 relative z-20">
+                <div className="max-w-6xl mx-auto px-6">
                     <SectionWrapper>
-                        <h2 className="text-3xl font-bold text-slate-900 mb-12 font-heading">Certified Excellence</h2>
-                        <div className="flex flex-wrap justify-center gap-12 opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
-                            <div className="flex items-center gap-3 font-bold text-slate-700 text-xl">
-                                <CheckCircle2 className="w-8 h-8 text-primary" />
-                                ISO 9001:2015
-                            </div>
-                            <div className="flex items-center gap-3 font-bold text-slate-700 text-xl">
-                                <CheckCircle2 className="w-8 h-8 text-blue-600" />
-                                TUV Nord Certified
-                            </div>
-                        </div>
+                        <h2 className="text-4xl font-bold text-slate-900 text-center mb-16 font-heading">Certified Excellence</h2>
                     </SectionWrapper>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        {/* ISO Certification */}
+                        <SectionWrapper delay={0.1}>
+                            <div className="premium-card p-10 bg-white rounded-2xl border border-slate-100 hover:border-primary/50 hover:shadow-xl transition-all duration-300 group relative overflow-hidden flex items-center gap-8">
+                                <div className="absolute right-0 top-0 opacity-[0.03] group-hover:opacity-[0.06] transition-opacity">
+                                    <CheckCircle2 className="w-48 h-48 text-primary" />
+                                </div>
+                                <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center text-primary shrink-0 group-hover:scale-110 transition-transform">
+                                    <CheckCircle2 className="w-10 h-10" />
+                                </div>
+                                <div>
+                                    <h3 className="text-2xl font-bold text-slate-900 mb-2">ISO 9001:2015</h3>
+                                    <p className="text-slate-500 font-medium">Quality Management System</p>
+                                    <div className="mt-4 inline-flex items-center gap-2 text-xs font-bold text-primary uppercase tracking-wider">
+                                        <div className="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
+                                        Active
+                                    </div>
+                                </div>
+                            </div>
+                        </SectionWrapper>
+
+                        {/* TUV Certification */}
+                        <SectionWrapper delay={0.2}>
+                            <div className="premium-card p-10 bg-white rounded-2xl border border-slate-100 hover:border-blue-500/50 hover:shadow-xl transition-all duration-300 group relative overflow-hidden flex items-center gap-8">
+                                <div className="absolute right-0 top-0 opacity-[0.03] group-hover:opacity-[0.06] transition-opacity">
+                                    <CheckCircle2 className="w-48 h-48 text-blue-600" />
+                                </div>
+                                <div className="w-20 h-20 bg-blue-50 rounded-full flex items-center justify-center text-blue-600 shrink-0 group-hover:scale-110 transition-transform">
+                                    <CheckCircle2 className="w-10 h-10" />
+                                </div>
+                                <div>
+                                    <h3 className="text-2xl font-bold text-slate-900 mb-2">TUV Nord Certified</h3>
+                                    <p className="text-slate-500 font-medium">Global Safety & Quality Standards</p>
+                                    <div className="mt-4 inline-flex items-center gap-2 text-xs font-bold text-blue-600 uppercase tracking-wider">
+                                        <div className="w-2 h-2 rounded-full bg-blue-600 animate-pulse"></div>
+                                        Verified
+                                    </div>
+                                </div>
+                            </div>
+                        </SectionWrapper>
+                    </div>
                 </div>
             </section>
 

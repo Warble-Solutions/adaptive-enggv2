@@ -18,7 +18,7 @@ export default function RenewablePage() {
                 {/* Background Image */}
                 <div className="absolute inset-0 z-0">
                     <img
-                        src="/imgs/renew.jpg"
+                        src="/imgs/renewable.jpg"
                         alt="Renewable Solutions Background"
                         className="w-full h-full object-cover"
                     />
