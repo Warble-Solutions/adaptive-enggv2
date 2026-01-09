@@ -38,7 +38,7 @@ export default function Home() {
                 <img
                   src={`/imgs/logos/${i + 1}.webp`}
                   alt={`Partner ${i + 1}`}
-                  className="h-52 w-auto object-contain hover:scale-110 transition-all duration-300"
+                  className="h-64 w-auto object-contain hover:scale-110 transition-all duration-300"
                 />
               </div>
             ))}
@@ -48,7 +48,7 @@ export default function Home() {
                 <img
                   src={`/imgs/logos/${i + 1}.webp`}
                   alt={`Partner ${i + 1}`}
-                  className="h-52 w-auto object-contain hover:scale-110 transition-all duration-300"
+                  className="h-64 w-auto object-contain hover:scale-110 transition-all duration-300"
                 />
               </div>
             ))}
