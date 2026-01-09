@@ -123,7 +123,7 @@ export default function ContactPage() {
                                 {/* Map Section - Installed Base */}
                                 <div className="w-full bg-slate-900 rounded-3xl overflow-hidden border border-slate-800 relative mt-12 shadow-2xl group">
                                     {/* Content Overlay */}
-                                    <div className="absolute top-0 left-0 w-full p-8 z-20 flex flex-col items-start text-left">
+                                    <div className="absolute top-0 left-0 w-full p-8 z-20 flex flex-col items-end text-right">
                                         <div className="inline-block px-3 py-1 bg-primary/20 text-primary rounded-lg text-xs font-bold uppercase tracking-widest mb-2 border border-primary/20">
                                             Global Impact
                                         </div>
