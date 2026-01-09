@@ -2,18 +2,22 @@ import { MapPin, Phone, Mail, Linkedin, Twitter, Youtube } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 
+import SceneTrigger from "./3d/SceneTrigger";
+
 export default function Footer() {
     return (
-        <footer className="bg-slate-900/60 backdrop-blur-md text-white pt-24 pb-12 relative z-50">
+        <footer className="bg-transparent text-white pt-24 pb-12 relative z-50">
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/80 to-slate-900/20 -z-10 pointer-events-none"></div>
+            <SceneTrigger variant="network" color="#049A89" speed={0.5} />
             <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12 mb-20">
 
                 {/* Brand */}
                 <div>
                     <Image
-                        src="https://sp-ao.shortpixel.ai/client/to_auto,q_lossy,ret_img,w_170/https://adaptive-engg.com/wp-content/uploads/2025/04/logo-1-png.avif"
+                        src="/imgs/logo.png"
                         alt="AEPL"
-                        width={170}
-                        height={48}
+                        width={150}
+                        height={40}
                         className="h-10 w-auto brightness-0 invert opacity-80 mb-8"
                     />
                     <h5 className="text-white font-bold mb-4 tracking-widest text-lg">AEPL</h5>

@@ -68,11 +68,11 @@ export default function Navbar() {
                     {/* Logo */}
                     <Link href="/" className="z-20">
                         <Image
-                            src="https://sp-ao.shortpixel.ai/client/to_auto,q_lossy,ret_img,w_170/https://adaptive-engg.com/wp-content/uploads/2025/04/logo-1-png.avif"
+                            src="/imgs/logo.png"
                             alt="Adaptive Engineering"
-                            width={220}
-                            height={62}
-                            className="h-16 w-auto object-contain hover:opacity-80 transition-opacity duration-300"
+                            width={180}
+                            height={50}
+                            className="h-12 w-auto object-contain hover:opacity-80 transition-opacity duration-300"
                             priority
                         />
                     </Link>
