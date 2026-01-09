@@ -70,9 +70,9 @@ export default function Navbar() {
                         <Image
                             src="/imgs/logo.png"
                             alt="Adaptive Engineering"
-                            width={180}
-                            height={50}
-                            className="h-12 w-auto object-contain hover:opacity-80 transition-opacity duration-300"
+                            width={240}
+                            height={70}
+                            className="h-20 w-auto object-contain hover:opacity-80 transition-opacity duration-300"
                             priority
                         />
                     </Link>
