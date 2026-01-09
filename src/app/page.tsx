@@ -9,6 +9,7 @@ import { ArrowRight, ShieldCheck, Activity, HardHat, CheckCircle2, Blocks, Link2
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDraftingCompass, faIndustry, faScrewdriverWrench, faDesktop } from "@fortawesome/free-solid-svg-icons";
+import SceneTrigger from "@/components/3d/SceneTrigger";
 
 export default function Home() {
   return (
@@ -21,6 +22,7 @@ export default function Home() {
           <span className="text-[10px] uppercase tracking-[0.3em] text-white">Scroll</span>
           <div className="w-[1px] h-12 bg-gradient-to-b from-white to-transparent"></div>
         </div>
+        <SceneTrigger variant="network" color="#049A89" />
       </section>
 
       {/* 2. MARQUEE SECTION (Light) */}
@@ -83,6 +85,7 @@ export default function Home() {
 
       {/* 4. CORE SOLUTIONS (Dark) */}
       <section className="py-32 bg-transparent rounded-b-[40px] z-10 relative shadow-2xl">
+        <SceneTrigger variant="solar" color="#EAB308" speed={0.5} />
         <div className="w-full max-w-[1800px] mx-auto px-6 md:px-12">
           <div className="mb-24 text-center">
             <SectionWrapper>
@@ -126,6 +129,7 @@ export default function Home() {
 
       {/* 5. TECH HIGHLIGHT (Light) */}
       <section className="py-24 bg-light z-0" >
+        <SceneTrigger variant="network" color="#0EA5E9" speed={1} />
         <div className="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row items-center gap-20">
           <div className="lg:w-1/2">
             <SectionWrapper>
@@ -171,6 +175,7 @@ export default function Home() {
 
       {/* 6. PROJECTS (Dark) */}
       <section className="py-32 bg-transparent rounded-t-[40px] z-10 relative" >
+        <SceneTrigger variant="wind" color="#f97316" speed={0.6} />
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex justify-between items-end mb-16 border-b border-white/10 pb-6">
             <SectionWrapper>
@@ -218,6 +223,7 @@ export default function Home() {
 
       {/* 7. SCALABILITY (Light) */}
       <section className="section-light py-24 bg-white relative z-20" >
+        <SceneTrigger variant="battery" color="#10B981" speed={0.8} />
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <SectionWrapper>
@@ -287,6 +293,7 @@ export default function Home() {
 
       {/* 9. PROTOCOL (Light) */}
       <section className="py-24 bg-light z-20" >
+        <SceneTrigger variant="wave" color="#06b6d4" speed={0.5} />
         <div className="max-w-[1800px] mx-auto px-6">
           <SectionWrapper>
             <div className="flex flex-col md:flex-row items-end justify-between mb-12">

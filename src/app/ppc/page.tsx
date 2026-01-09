@@ -28,7 +28,7 @@ export default function PPCPage() {
         <div className="flex flex-col w-full">
             {/* 1. HERO SECTION (Dark) */}
             {/* 1. HERO SECTION (Dark) */}
-            <section className="section-hero relative min-h-screen flex flex-col items-center justify-center text-center px-6 py-32 overflow-hidden">
+            <section className="section-hero relative min-h-[60vh] flex flex-col items-center justify-center text-center px-6 py-20 overflow-hidden">
                 {/* Background Image */}
                 <div className="absolute inset-0 z-0">
                     <img
@@ -40,7 +40,7 @@ export default function PPCPage() {
                     <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/50 to-black/90 z-10"></div>
                 </div>
 
-                <div className="z-10 max-w-5xl relative">
+                <div className="z-10 max-w-7xl relative">
                     <SectionWrapper>
                         <div className="inline-block px-4 py-2 bg-white/10 backdrop-blur-sm text-white rounded-full text-xs font-bold uppercase tracking-widest mb-6 border border-white/20 text-center shadow-lg">
                             India&apos;s Preferred Renewable Energy Technology Partner
@@ -50,7 +50,7 @@ export default function PPCPage() {
                             Power <span className="text-primary drop-shadow-[0_5px_5px_rgba(0,0,0,0.8)]">Plant Control</span>
                         </h1>
 
-                        <p className="text-gray-100 text-xl md:text-2xl font-medium max-w-3xl mx-auto leading-relaxed drop-shadow-lg bg-black/40 backdrop-blur-sm rounded-2xl py-6 px-8 border border-white/10 shadow-2xl">
+                        <p className="text-gray-100 text-lg md:text-xl font-medium max-w-4xl mx-auto leading-relaxed drop-shadow-lg bg-black/40 backdrop-blur-sm rounded-2xl py-6 px-8 border border-white/10 shadow-2xl">
                             Advanced, reliable and adaptable Power Plant Control (PPC) solutions for stand-alone and hybrid plants to achieve green energy goals
                         </p>
                     </SectionWrapper>
@@ -500,7 +500,7 @@ export default function PPCPage() {
             </section >
 
             {/* 8. CTA (Light) */}
-            < section className="py-20 bg-slate-900 text-center relative z-20" >
+            < section className="py-20 bg-transparent text-center relative z-10" >
                 <div className="max-w-2xl mx-auto px-6">
                     <SectionWrapper>
                         <h2 className="text-4xl font-bold text-white mb-6 font-heading">Partner with AEPL</h2>

@@ -14,7 +14,7 @@ export default function RenewablePage() {
     return (
         <div className="flex flex-col w-full">
             {/* 1. HERO SECTION (Dark) */}
-            <section className="section-hero relative min-h-[50vh] flex flex-col items-center justify-center text-center px-6 pt-32 pb-12 overflow-hidden">
+            <section className="section-hero relative min-h-[60vh] flex flex-col items-center justify-center text-center px-6 py-20 overflow-hidden">
                 {/* Background Image */}
                 <div className="absolute inset-0 z-0">
                     <img
@@ -26,7 +26,7 @@ export default function RenewablePage() {
                     <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/50 to-black/90 z-10"></div>
                 </div>
 
-                <div className="z-10 max-w-5xl relative">
+                <div className="z-10 max-w-7xl relative">
                     <SectionWrapper>
                         <div className="flex items-center justify-center gap-2 text-primary text-sm font-bold uppercase tracking-widest mb-6 bg-black/40 backdrop-blur-sm py-2 px-6 rounded-full inline-flex border border-white/10 shadow-lg">
                             <Link href="/" className="hover:text-white transition-colors">Home</Link>
@@ -38,8 +38,8 @@ export default function RenewablePage() {
                             Renewable <span className="text-primary drop-shadow-[0_5px_5px_rgba(0,0,0,0.8)]">Solutions</span>
                         </h1>
 
-                        <p className="text-gray-100 text-xl md:text-2xl font-medium max-w-3xl mx-auto leading-relaxed drop-shadow-lg bg-black/40 backdrop-blur-sm rounded-2xl py-6 px-8 border border-white/10 shadow-2xl">
-                            The complete power value chain: From advanced Digital Intelligence and SCADA Automation to robust Heavy Electrical Infrastructure and Grid Integration
+                        <p className="text-gray-100 text-lg md:text-xl font-medium max-w-4xl mx-auto leading-relaxed drop-shadow-lg bg-black/40 backdrop-blur-sm rounded-2xl py-6 px-8 border border-white/10 shadow-2xl">
+                            The complete power value chain: From Digital Intelligence & SCADA to Heavy Electrical Infrastructure & Grid Integration
                         </p>
                     </SectionWrapper>
                 </div>
@@ -56,7 +56,7 @@ export default function RenewablePage() {
                                     <div className="p-5 bg-blue-50 rounded-2xl text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">
                                         <Monitor className="w-10 h-10" />
                                     </div>
-                                    <h3 className="text-2xl font-bold text-slate-900 transition-colors">Unified Solutions</h3>
+                                    <h3 className="text-2xl font-bold text-slate-900 transition-colors">Unified Renewable Solution</h3>
                                 </div>
                                 <p className="text-slate-500 text-base text-center leading-relaxed transition-colors">SCADA, PPC, and Telemetry for Grid Compliance.</p>
                             </a>
@@ -92,11 +92,11 @@ export default function RenewablePage() {
             </section>
 
             {/* 2. SOLUTION 1: UNIFIED RENEWABLE SOLUTIONS (Dark) */}
-            <section id="unified" className="section-dark pt-32 pb-24 bg-slate-900 text-white relative z-10 scroll-mt-32">
+            <section id="unified" className="section-dark pt-32 pb-24 bg-transparent text-white relative z-10 scroll-mt-32">
                 <div className="max-w-7xl mx-auto px-6">
                     <div className="text-center mb-16">
                         <SectionWrapper>
-                            <h2 className="text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-teal-400 font-heading mb-4">1. Unified Renewable Solutions</h2>
+                            <h2 className="text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-teal-400 font-heading mb-4">1. Unified Renewable Solution</h2>
                             <p className="text-gray-400 max-w-2xl mx-auto">An integrated digital ecosystem ensuring grid compliance and asset longevity.</p>
                         </SectionWrapper>
                     </div>
@@ -188,7 +188,7 @@ export default function RenewablePage() {
                     </div>
                     <div className="mt-12 flex flex-col md:flex-row justify-center gap-6">
                         <MicroCTA text="Download Brochure" variant="download" href="#" />
-                        <MicroCTA text="Get SCADA Demo" variant="connect" href="/contact" context="dark" />
+                        <MicroCTA text="Get Demo" variant="connect" href="/contact" context="dark" />
                     </div>
                 </div>
             </section >
@@ -256,7 +256,7 @@ export default function RenewablePage() {
             </section>
 
             {/* 4. SOLUTION 3: TURNKEY E&I (Dark) */}
-            <section id="turnkey" className="section-dark py-24 bg-slate-900 text-white relative z-10 -mt-10 pt-32 scroll-mt-32">
+            <section id="turnkey" className="section-dark py-24 bg-transparent text-white relative z-10 -mt-10 pt-40 scroll-mt-32">
                 <div className="max-w-7xl mx-auto px-6">
                     <div className="text-center mb-16 reveal">
                         <h2 className="text-3xl md:text-4xl font-bold font-heading mb-4">3. Turnkey E&I</h2>
@@ -331,7 +331,7 @@ export default function RenewablePage() {
             </section>
 
             {/* 6. CTA (Dark) */}
-            <section className="py-20 bg-slate-900 text-center border-t border-slate-800 relative z-10">
+            <section className="py-20 bg-transparent text-center border-t border-slate-800 relative z-10">
                 <div className="max-w-2xl mx-auto px-6">
                     <SectionWrapper>
                         <h2 className="text-3xl font-bold text-white mb-6 font-heading">Ready to Execute?</h2>

@@ -20,7 +20,7 @@ export default function ContactPage() {
         <div className="flex flex-col w-full">
             {/* 1. HERO SECTION (Dark) */}
             {/* 1. HERO SECTION (Dark) */}
-            <section className="section-hero relative min-h-[60vh] flex flex-col items-center justify-center text-center px-6 overflow-hidden">
+            <section className="section-hero relative min-h-[60vh] flex flex-col items-center justify-center text-center px-6 py-20 overflow-hidden">
                 {/* Background Image */}
                 <div className="absolute inset-0 z-0">
                     <img
@@ -32,12 +32,12 @@ export default function ContactPage() {
                     <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/50 to-black/90 z-10"></div>
                 </div>
 
-                <div className="z-10 max-w-4xl relative">
+                <div className="z-10 max-w-7xl relative">
                     <SectionWrapper>
                         <h1 className="text-5xl md:text-7xl font-black text-white mb-6 font-heading drop-shadow-[0_5px_5px_rgba(0,0,0,0.8)]">
                             Establish <span className="text-primary drop-shadow-[0_5px_5px_rgba(0,0,0,0.8)]">Connection</span>
                         </h1>
-                        <p className="text-gray-100 text-xl md:text-2xl font-medium max-w-2xl mx-auto leading-relaxed drop-shadow-lg bg-black/40 backdrop-blur-sm rounded-2xl py-6 px-8 border border-white/10 shadow-2xl">
+                        <p className="text-gray-100 text-lg md:text-xl font-medium max-w-4xl mx-auto leading-relaxed drop-shadow-lg bg-black/40 backdrop-blur-sm rounded-2xl py-6 px-8 border border-white/10 shadow-2xl">
                             Get in touch with our engineering team for Consultations, Quotes, or Support
                         </p>
                     </SectionWrapper>
@@ -120,18 +120,29 @@ export default function ContactPage() {
                                     </div>
                                 </div>
 
-                                {/* Map Placeholder */}
-                                <div className="w-full h-96 md:h-[450px] min-h-[400px] bg-slate-100 rounded-2xl overflow-hidden border border-slate-200 relative mt-12">
-                                    <iframe
-                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3671.936636737389!2d72.5732143154236!3d23.02606512197686!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e84f7f6a704f1%3A0xc6c7c5c8c5c5c5c5!2sReserve%20Bank%20of%20India%2C%20Ashram%20Rd%2C%20Ahmedabad!5e0!3m2!1sen!2sin!4v1675840000000!5m2!1sen!2sin"
-                                        width="100%"
-                                        height="100%"
-                                        style={{ border: 0 }}
-                                        allowFullScreen={true}
-                                        loading="lazy"
-                                        referrerPolicy="no-referrer-when-downgrade"
-                                        className="absolute inset-0 w-full h-full"
-                                    ></iframe>
+                                {/* Map Section - Installed Base */}
+                                <div className="w-full bg-slate-900 rounded-3xl overflow-hidden border border-slate-800 relative mt-12 shadow-2xl group">
+                                    {/* Content Overlay */}
+                                    <div className="absolute top-0 left-0 w-full p-8 z-20">
+                                        <div className="inline-block px-3 py-1 bg-primary/20 text-primary rounded-lg text-xs font-bold uppercase tracking-widest mb-2 border border-primary/20">
+                                            Global Impact
+                                        </div>
+                                        <h3 className="text-4xl font-black text-white mb-1">
+                                            68GW<span className="text-primary">+</span>
+                                        </h3>
+                                        <p className="text-gray-400 font-medium">Installed Base</p>
+                                    </div>
+
+                                    {/* Map Image */}
+                                    <div className="relative w-full h-[500px] flex items-center justify-center pt-20">
+                                        <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-slate-900 to-transparent z-10"></div>
+                                        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent opacity-30"></div>
+                                        <img
+                                            src="/imgs/map.png"
+                                            alt="Installed Base Map"
+                                            className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
+                                        />
+                                    </div>
                                 </div>
                             </SectionWrapper>
                         </div>
