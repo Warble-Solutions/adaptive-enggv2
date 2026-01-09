@@ -457,12 +457,12 @@ export default function PmKusumPage() {
             </section>
 
             {/* 6. CTA (Light) */}
-            <section className="py-20 bg-white text-center border-t border-gray-100 relative z-20">
+            <section className="py-20 bg-transparent text-center relative z-10">
                 <div className="max-w-2xl mx-auto px-6">
                     <SectionWrapper>
-                        <h2 className="text-3xl font-bold text-slate-900 mb-6 font-heading">Partner for PM-KUSUM?</h2>
-                        <p className="text-slate-500 mb-8 text-lg">We support EPCs and Developers with end-to-end RMS & Hardware.</p>
-                        <Link href="/contact" className="inline-flex items-center gap-2 px-10 py-4 bg-slate-900 text-white rounded-full font-bold hover:bg-primary transition-colors">
+                        <h2 className="text-3xl font-bold text-white mb-6 font-heading">Partner for PM-KUSUM?</h2>
+                        <p className="text-gray-400 mb-8 text-lg">We support EPCs and Developers with end-to-end RMS & Hardware.</p>
+                        <Link href="/contact" className="inline-flex items-center gap-2 px-10 py-4 bg-white text-slate-900 rounded-full font-bold hover:bg-primary hover:text-white transition-colors">
                             Get Quote <ArrowRight className="w-4 h-4" />
                         </Link>
                     </SectionWrapper>
