@@ -449,11 +449,17 @@ export default function Home() {
           </SectionWrapper>
           <div className="flex gap-16 text-center">
             <SectionWrapper delay={0.1}>
-              <div className="text-6xl font-bold mb-2 font-mono">68<span className="text-primary">GW+</span></div>
+              <div className="flex items-baseline justify-center gap-1 mb-2">
+                <Counter value={68} className="text-5xl font-extrabold text-white font-heading" />
+                <span className="text-5xl font-extrabold text-primary font-heading">GW+</span>
+              </div>
               <div className="text-xs font-bold uppercase tracking-widest text-gray-400">Monitored Assets</div>
             </SectionWrapper>
             <SectionWrapper delay={0.2}>
-              <div className="text-6xl font-bold mb-2 font-mono">1,000<span className="text-primary">+</span></div>
+              <div className="flex items-baseline justify-center gap-1 mb-2">
+                <Counter value={1000} className="text-5xl font-extrabold text-white font-heading" />
+                <span className="text-5xl font-extrabold text-primary font-heading">+</span>
+              </div>
               <div className="text-xs font-bold uppercase tracking-widest text-gray-400">Total Projects</div>
             </SectionWrapper>
           </div>

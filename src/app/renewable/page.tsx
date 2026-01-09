@@ -14,7 +14,7 @@ export default function RenewablePage() {
     return (
         <div className="flex flex-col w-full">
             {/* 1. HERO SECTION (Dark) */}
-            <section className="section-hero relative min-h-[60vh] flex flex-col items-center justify-center text-center px-6 py-20 overflow-hidden">
+            <section className="section-hero relative min-h-screen flex flex-col items-center justify-center text-center px-6 py-20 overflow-hidden">
                 {/* Background Image */}
                 <div className="absolute inset-0 z-0">
                     <img
@@ -23,7 +23,7 @@ export default function RenewablePage() {
                         className="w-full h-full object-cover"
                     />
                     {/* Darker Gradient Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/50 to-black/90 z-10"></div>
+                    <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/70 z-10"></div>
                 </div>
 
                 <div className="z-10 max-w-7xl relative">
@@ -46,7 +46,7 @@ export default function RenewablePage() {
             </section>
 
             {/* --- SOLUTION NAVIGATOR --- */}
-            <section className="relative z-20 py-24 bg-slate-50 shadow-2xl text-slate-900">
+            <section className="relative z-20 py-24 bg-slate-50 rounded-t-[40px] -mt-20 shadow-2xl text-slate-900">
                 <div className="max-w-7xl mx-auto px-6">
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-16">
                         {/* Card 1: Software */}

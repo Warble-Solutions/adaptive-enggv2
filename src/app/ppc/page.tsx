@@ -28,7 +28,7 @@ export default function PPCPage() {
         <div className="flex flex-col w-full">
             {/* 1. HERO SECTION (Dark) */}
             {/* 1. HERO SECTION (Dark) */}
-            <section className="section-hero relative min-h-[60vh] flex flex-col items-center justify-center text-center px-6 py-20 overflow-hidden">
+            <section className="section-hero relative min-h-screen flex flex-col items-center justify-center text-center px-6 py-20 overflow-hidden">
                 {/* Background Image */}
                 <div className="absolute inset-0 z-0">
                     <img
@@ -37,7 +37,7 @@ export default function PPCPage() {
                         className="w-full h-full object-cover"
                     />
                     {/* Darker Gradient Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/50 to-black/90 z-10"></div>
+                    <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/70 z-10"></div>
                 </div>
 
                 <div className="z-10 max-w-7xl relative">
